@@ -1,0 +1,40 @@
+body{
+    background-color:#A7EDD4;
+    font-size: 12px;
+    height: 100%;
+    font-weight: 700;
+}
+
+.navbar {
+    background-color:#71E398;
+}
+
+.container1{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.login-form{
+    height: 500px;
+    width: 430px;
+    padding: 0 35px;
+    background-color: #D1FFE0;
+    border: none;
+}
+.form-control{
+    font-weight: bold;
+}
+input[type="email"],
+input[type="password"]{
+    background-color: lightgreen;
+    border-radius: 20px;
+}
+
+.btn-login{
+    font-weight: bold;
+    background-color: lightgreen;
+    height: 35px;
+    border-radius: 20px ;
+}
