@@ -1,3 +1,36 @@
+<?php
+
+include 'koneksi.php';
+
+if (isset($_POST['login'])) {
+  $username = $_POST['user'];
+  $password = $_POST['pass'];
+
+  $ambil = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username' ");
+
+  if (mysqli_num_rows($ambil) === 1) {
+    $data = mysqli_fetch_assoc($ambil);
+
+    if (password_verify($password,$data['password'])) {
+      header("location:admin.php");
+      exit();
+    }else{
+      echo "<script>
+      alert('Username atau Password Salah');
+      window.location = 'index.php';
+    </script>";
+    }
+
+  }else {
+    echo "<script>
+      alert('Username atau Password Salah');
+      window.location = 'index.php';
+    </script>";
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,11 +74,11 @@
         <form action="" method="POST">
           <div class="mb-0  ">
           <label for="exampleInputPassword1" class="form-label"></label>
-          <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="USERNAME">
+          <input type="text" name="user" class="form-control" id="exampleInputUsername" placeholder="USERNAME">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+            <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
           </div>
           <div class="d-flex justify-content-between">
             <div class="mb-3 form-check">
@@ -57,7 +90,7 @@
             </div>
           </div>
           <div class="d-grid mt-5">
-          <button type="submit" class="btn btn-primary btn-login">Submit</button>
+          <button type="submit" name="login" class="btn btn-primary btn-login" value="login">Submit</button>
           </div>
         </form>
       </div>

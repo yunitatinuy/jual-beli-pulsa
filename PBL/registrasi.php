@@ -1,11 +1,6 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "db_admin";
-
-$koneksi = mysqli_connect($host, $user, $pass, $db) or die(mysql_error($koneksi));
+include 'koneksi.php';
 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
