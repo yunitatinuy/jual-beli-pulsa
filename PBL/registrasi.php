@@ -6,30 +6,29 @@ if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password1 = $_POST['password1'];
+    $password = $_POST['password'];
     $password2 = $_POST['password2'];
 
-    $cek_user = mysqli_query($koneksi,"SELECT * FROM user WHERE username = '$username' ");
-    $cek_login = mysqli_num_rows($cek_user);
-
-    if ($cek_login > 0) {
+    $data = mysqli_query($koneksi,"SELECT * FROM user WHERE username = '$username' and password='$password' ");
+    if (mysqli_num_rows($data) > 0) {
         echo "<script>
               alert('Username telah terdaftar');
-              window.location = 'registrasi.php;
+              window.location = 'registrasi.php';
         </script>";
     }else {
-        if ($password1 != $password2) {
+        if ($password == $password2) {
+          $query = "INSERT INTO user VALUES('','$nama','$username','$email','$password')";
+          mysqli_query($koneksi,$query);
           echo "<script>
-              alert('Password Tidak Sesuai');
-              window.location = 'registrasi.php;
-        </script>";
-        }else {
-            $password = password_hash($password1, PASSWORD_DEFAULT);
-            mysqli_query($koneksi,"INSERT INTO user VALUES('','$nama','$username','$email','$password')") or die(mysql_error());
-            echo "<script>
             alert('Data berhasil dikirim');
             window.location = 'index.php';
-        </script>";
+            </script>";
+          
+        }else  {
+          echo "<script>
+          alert('Password Tidak Sesuai');
+          window.location = 'registrasi.php';
+          </script>";
         }
     }
   }
@@ -89,7 +88,7 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
