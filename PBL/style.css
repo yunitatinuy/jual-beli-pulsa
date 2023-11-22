@@ -26,7 +26,7 @@ body{
 .form-control{
     font-weight: bold;
 }
-input[type="email"],
+input[type="text"],
 input[type="password"]{
     background-color: lightgreen;
     border-radius: 20px;
