@@ -49,9 +49,22 @@ hr.h-color{
 
 .dropdown{
     background: lightgreen;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .dropdown ul.dropdown-menu{
     background: lightgreen;
+}
+
+.footer{
+    background: lightgray;
+}
+
+input[type="number"]{
+    background-color: lightgreen;
+}
+
+.btn-login{
+    background: lightgreen;
+    border-radius: 15px;
 }
