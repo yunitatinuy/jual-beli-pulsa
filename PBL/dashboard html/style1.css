@@ -60,6 +60,10 @@ hr.h-color{
     background: lightgray;
 }
 
+.footer1{
+    background: #AFF4C6;
+}
+
 input[type="number"]{
     background-color: lightgreen;
 }
@@ -67,4 +71,10 @@ input[type="number"]{
 .btn-login{
     background: lightgreen;
     border-radius: 15px;
+}
+
+.btn-submit{
+    background: #86D8BA;
+    border-radius: 15px;
+    
 }
