@@ -27,6 +27,7 @@ body{
     font-weight: bold;
 }
 input[type="text"],
+input[type="email"],
 input[type="password"]{
     background-color: lightgreen;
     border-radius: 20px;

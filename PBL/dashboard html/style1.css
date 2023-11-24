@@ -66,6 +66,7 @@ hr.h-color{
 
 input[type="number"]{
     background-color: lightgreen;
+    -moz-appearance: textfield;
 }
 
 .btn-login{
