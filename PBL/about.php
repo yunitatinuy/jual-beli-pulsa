@@ -8,16 +8,16 @@
   <link rel="stylesheet" href="style2.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
-<body>
+<body id="home">
 <nav>
   <div class="wrapper">
     <div class="logo"><a href="">QUICK.TOP</a></div>
     <div class="menu">
       <ul>
-        <li><a href="awal.php">Home</a></li>
-        <li><a href="selengkapnya.php">Deskripsi</a></li>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="">Contact Us</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#desc">Deskripsi</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
         <li><a href="registrasi.php" class="tbl-green">Registration</a></li>
       </ul>
     </div>
@@ -53,7 +53,7 @@
             <div class="kolom">
                 <p class="deskripsi"></p>
                     <h2>About Us</h2>
-                        <p>Kami merancang website ini sebagai bagian dari tugas Project Base Learning (PBL). Kenalkan, kami dari tim D kelas Informatika D Malam. Kami adalah Politeknik Negeri Batam. Kelompok kami beranggotakan 5 orang, 3 diantaranya perempuan dan 2 laki-laki. Website ini bertujuan memudahkan pengguna dalam membeli pulsa dengan harga yang terjangkau. </p>
+                        <p>Kami merancang website ini sebagai bagian dari tugas Project Base Learning (PBL). Kenalkan, kami dari tim D kelas Informatika D Malam. Kami adalah mahasiswa Politeknik Negeri Batam. Kelompok kami beranggotakan 5 orang, 3 diantaranya perempuan dan 2 laki-laki. Website ini bertujuan memudahkan pengguna dalam membeli pulsa dengan harga yang terjangkau. </p>
                     </div>
                     <p class="deskripsi"><h3>Front End Developer</h3></p>
                     <div class="anggota-list">
@@ -92,7 +92,7 @@
                       <div class="anggota-list">
                       <div class="kartu-anggota">
                         <img src="https://img.freepik.com/free-vector/hand-drawn-korean-drawing-style-character-illustration_23-2149601874.jpg?w=740&t=st=1701092755~exp=1701093355~hmac=d124f49ed6c04e2ea67d1eb424d18796911f2b4d1f0482f62472cd68376cb4d2" width="150px" height="150px">
-                        <p>Yunita Caroline - Back end Developer</p>
+                        <p>Yunita Caroline</p>
                         <p>NIM : 3312311104</p>
                       </div>
                     </div>

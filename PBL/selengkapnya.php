@@ -8,16 +8,16 @@
   <link rel="stylesheet" href="style2.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
-<body>
+<body id="home">
 <nav>
   <div class="wrapper">
     <div class="logo"><a href="">QUICK.TOP</a></div>
     <div class="menu">
       <ul>
-        <li><a href="awal.php">Home</a></li>
-        <li><a href="selengkapnya.php">Deskripsi</a></li>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="">Contact Us</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#desc">Deskripsi</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
         <li><a href="registrasi.php" class="tbl-green">Registration</a></li>
       </ul>
     </div>
