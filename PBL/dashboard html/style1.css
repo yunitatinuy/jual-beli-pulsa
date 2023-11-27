@@ -48,12 +48,22 @@ hr.h-color{
 }
 
 .dropdown{
+<<<<<<< Updated upstream:PBL/dashboard html/style1.css
     background: lightgreen;
     border-radius: 15px;
+=======
+    background: #D1FFE0;
+    border-radius: 8px;
+    width: 161vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+>>>>>>> Stashed changes:PBL/dashboard/style1.css
 }
 
-.dropdown ul.dropdown-menu{
+.dropdown .dropdown1{
     background: lightgreen;
+<<<<<<< Updated upstream:PBL/dashboard html/style1.css
 }
 
 .footer{
@@ -79,3 +89,14 @@ input[type="number"]{
     border-radius: 15px;
     
 }
+=======
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    margin: 10px;
+    border-radius: 8px;
+    max-width: 960px;
+}
+
+>>>>>>> Stashed changes:PBL/dashboard/style1.css
