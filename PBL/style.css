@@ -1,6 +1,6 @@
 body{
     background-color:#A7EDD4;
-    font-size: 12px;
+    font-size: 14px;
     height: 100%;
     font-weight: 700;
 }
@@ -17,6 +17,14 @@ body{
 }
 
 .login-form{
+    height: 350px;
+    width: 430px;
+    padding: 0 35px;
+    background-color: #D1FFE0;
+    border: none;
+}
+
+.registrasi-form {
     height: 500px;
     width: 430px;
     padding: 0 35px;
@@ -38,4 +46,8 @@ input[type="password"]{
     background-color: lightgreen;
     height: 35px;
     border-radius: 20px ;
+}
+
+.btn-login:hover {
+    background-color: gold;
 }

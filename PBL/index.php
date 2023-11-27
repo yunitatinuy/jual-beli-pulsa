@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse text-right" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="registrasi.php">Registration</a>
+            <a class="nav-link active" aria-current="page" href="registrasi.html">Registration</a>
           </li>
         </ul>
       </div>
@@ -28,36 +28,38 @@
   <!-- navbar end -->
 
   <!-- foto -->
-  <div class="mt-5">
-    <center><img src="logo.jpeg" width="250" class="rounded-circle" alt="..."></center>
+  <div class="mt-4">
+    <center><img src="logo.jpeg" width="190" class="rounded-circle" alt="..."></center>
   </div>
   <!-- foto end -->
   
   <!-- login -->
-  <div class="container1 mt-5">
+  <div class="container1 mb-5 mt-4">
     <div class="card login-form">
       <div class="card-body">
-        <h5 class="card-title mt-5 text-center">ACCOUNT LOGIN</h5>
-        <form action="cek_login.php" method="POST">
+        <h5 class="card-title mt-4 text-center">ACCOUNT LOGIN</h5>
+        <form>
           <div class="mb-0  ">
-          <label for="exampleInputPassword1" class="form-label"></label>
-          <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="USERNAME">
+            <label for="exampleInputText1" class="form-label"></label>
+            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="emailHelp" placeholder="USERNAME">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
           </div>
           <div class="d-flex justify-content-between">
-            <div class="mb-3 form-check">
+            <div class="mb-3 mt-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
             <div>
+              <div class="forgot-pass mt-3">
               <a href="#">Forgot Password?</a>
             </div>
+            </div>
           </div>
-          <div class="d-grid mt-5">
-          <button type="submit" name="login" class="btn btn-primary btn-login" value="login">Submit</button>
+          <div class="d-grid mb-0 mt-3">
+          <button type="submit" class="btn btn-login">LOGIN</button>
           </div>
         </form>
       </div>
