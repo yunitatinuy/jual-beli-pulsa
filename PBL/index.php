@@ -28,24 +28,24 @@
   <!-- navbar end -->
 
   <!-- foto -->
-  <div class="mt-4">
-    <center><img src="logo.jpeg" width="190" class="rounded-circle" alt="..."></center>
+  <div class="img mt-4">
+    <center><img src="logo.jpeg" width="200" class="rounded-circle" alt="..."></center>
   </div>
   <!-- foto end -->
   
   <!-- login -->
-  <div class="container1 mb-5 mt-4">
+  <div class="container2 mb-5 mt-4">
     <div class="card login-form">
       <div class="card-body">
         <h5 class="card-title mt-4 text-center">ACCOUNT LOGIN</h5>
-        <form>
+        <form action="cek_login.php" method="POST">
           <div class="mb-0  ">
-            <label for="exampleInputText1" class="form-label"></label>
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="emailHelp" placeholder="USERNAME">
+          <label for="exampleInputPassword1" class="form-label"></label>
+          <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="USERNAME">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
           </div>
           <div class="d-flex justify-content-between">
             <div class="mb-3 mt-3 form-check">
@@ -53,13 +53,13 @@
               <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
             <div>
-              <div class="forgot-pass mt-3">
+              <div class="mb-0 mt-3">
               <a href="#">Forgot Password?</a>
             </div>
             </div>
           </div>
           <div class="d-grid mb-0 mt-3">
-          <button type="submit" class="btn btn-login">LOGIN</button>
+          <button type="submit" class="btn btn-primary btn-login">LOGIN</button>
           </div>
         </form>
       </div>

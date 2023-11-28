@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         </script>";
     }else {
         if ($password == $password2) {
-          $query = "INSERT INTO user VALUES('','$nama','$username','$email','$password')";
+          $query = "INSERT INTO user VALUES('','$nama','$username','$email','$password','')";
           mysqli_query($koneksi,$query);
           echo "<script>
             alert('Data berhasil dikirim');
@@ -64,47 +64,47 @@ if (isset($_POST['submit'])) {
 
   <!-- foto -->
   <div class="mt-4">
-    <center><img src="logo.jpeg" width="190" class="rounded-circle" alt="..."></center>
+    <center><img src="logo.jpeg" width="200" class="rounded-circle" alt="..."></center>
   </div>
   <!-- foto end -->
   
   <!-- login -->
   <div class="container1 mt-4">
-    <div class="card registrasi-form">
+    <div class="card regist-form">
       <div class="card-body">
         <h5 class="card-title mt-4 text-center">CREATE ACCOUNT</h5>
-        <form>
+        <form action="" method="POST">
           <div class="mb-0  ">
-            <label for="exampleInputText1" class="form-label"></label>
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="emailHelp" placeholder="FULLNAME">
+            <label for="exampleInputFullname1" class="form-label"></label>
+            <input type="text" name="nama" class="form-control" id="exampleInputFullname" placeholder="FULLNAME">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="text" class="form-control" id="exampleInputText1" placeholder="USERNAME">
+            <input type="text" name="username" class="form-control" id="exampleInputUsername" placeholder="USERNAME">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="email" class="form-control" id="exampleInputPassword1" placeholder="EMAIL">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="EMAIL">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
           </div>
           <div class="mb-0">
             <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="REPEAT PASSWORD">
+            <input type="password" name="password2" class="form-control" id="exampleInputPassword1" placeholder="REPEAT PASSWORD">
           </div>
           <div class="d-flex justify-content-between">
             <div class="mb-2 mt-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label " for="exampleCheck1">I agree to the terms of User</label>
+              <label class="form-check-label" for="exampleCheck1">I agree to the terms of User</label>
             </div>
             <!-- <div>
               <a href="#">Forgot Password?</a>
             </div> -->
           </div>
           <div class="d-grid mt-3">
-          <button type="submit" class="btn btn-login">SIGN UP</button>
+          <button type="submit" class="btn btn-primary btn-login">SIGN UP</button>
           </div>
         </form>
       </div>

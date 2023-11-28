@@ -15,7 +15,11 @@ if(mysqli_num_rows($data)>0) {
 
         $_SESSION['user'] = $row['username'];
         $_SESSION['pass'] = $row['password'];
-    header("location:admin.php");
+    if ($row['role'] == 1) {
+        header("location:admin.php");
+    } else if ($row['role'] == 0) {
+        header("location:pengguna.php");
+    }
 }else {
     echo "<script> alert('Data Anda Tidak Valid');
     window.location = 'index.php'; 
