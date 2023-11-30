@@ -15,42 +15,31 @@
     <div class="logo"><a href="">QUICK.TOP</a></div>
     <div class="menu">
       <ul>
-        <li><a href="login.html" class="tbl-green">Login</a></li>
+        <li><a href="registrasi.php" class="tbl-green">Registration</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="img fadeInDown mt-4 mb-4">
+<div class="img fadeInDown mt-4">
     <center><img src="logo.jpeg" width="200" class="rounded-circle" alt="..."></center>
   </div>
 <section>
     
-<div class="wrapper3 fadeIn first">
-    <form action="" method="">
-        <h1>Sign In</h1>
-        <div class="input-box">
-            <input type="text" class="fadeIn second" name="nama" placeholder="Name" required>
-            <i class=' fadeIn second'></i>
-        </div>
+<div class="wrapper2 fadeIn first">
+    <form action="cek_login.php" method="POST">
+        <h1>Login</h1>
         <div class="input-box">
             <input type="text" class="fadeIn second" name="username" placeholder="Username" required>
             <i class='bx bxs-user fadeIn second'></i>
         </div>
         <div class="input-box">
-            <input type="text" class="fadeIn second" name="email" placeholder="Email" required>
-            <i class='bx bxs-envelope fadeIn second'></i>
-        </div>
-        <div class="input-box">
-            <input type="password" class="fadeIn second" name="password" placeholder="Password" required>
-            <i class='bx bxs-lock-open-alt fadeIn second'></i>
-        </div>
-        <div class="input-box">
-            <input type="password" class="fadeIn third" name="password2" placeholder="Confirm Password" required>
+            <input type="password" class="fadeIn third" name="password" placeholder="Password" required>
             <i class='bx bxs-lock-alt fadeIn third'></i>
         </div>
 
-        <div class="remember-forgot mt-2 fadeIn fourth">
-            <label><input type="checkbox">I agree to the terms of User</label>
+        <div class="remember-forgot fadeIn fourth">
+            <label><input type="checkbox">Remember me</label>
+            <a href="#">Forgot password?</a>
         </div>
 
         <button type="submit" class="btn fadeIn fifth">Login</button>

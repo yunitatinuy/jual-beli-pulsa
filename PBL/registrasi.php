@@ -15,7 +15,7 @@
     <div class="logo"><a href="">QUICK.TOP</a></div>
     <div class="menu">
       <ul>
-        <li><a href="login.html" class="tbl-green">Login</a></li>
+        <li><a href="login.php" class="tbl-green">Login</a></li>
       </ul>
     </div>
   </div>
@@ -26,7 +26,7 @@
 <section>
     
 <div class="wrapper3 fadeIn first">
-    <form action="" method="">
+    <form action="cek_registrasi.php" method="POST">
         <h1>Sign In</h1>
         <div class="input-box">
             <input type="text" class="fadeIn second" name="nama" placeholder="Name" required>
