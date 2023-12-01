@@ -12,7 +12,7 @@
 <body id="home">
 <nav>
   <div class="wrapper">
-    <div class="logo"><a href="">QUICK.TOP</a></div>
+    <div class="logo"><a href="awal.php">QUICK.TOP</a></div>
     <div class="menu">
       <ul>
         <li><a href="login.php" class="tbl-green">Login</a></li>
