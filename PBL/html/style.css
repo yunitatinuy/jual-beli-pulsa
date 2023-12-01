@@ -13,8 +13,17 @@ body{
 }
 
 /* d_admin */
+.navbar{
+  background: #60C581;
+}
 .navbar .nav-link:hover{
 	background-color: grey;
+}
+.side_bar1 .side_bar2{
+  background: #71E398;
+}
+.tambah1 a{
+  background: #AFF4C6;
 }
 .display-4{
 	font-weight: bold;

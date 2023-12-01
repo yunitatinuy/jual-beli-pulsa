@@ -18,7 +18,7 @@ $pengguna=$_SESSION['user'];
     <title>ADMINISTRATOR</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <a class="navbar-brand nav-link text-white" href="#" >SELAMAT DATANG <?php echo $pengguna?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,8 +37,8 @@ $pengguna=$_SESSION['user'];
         </div>
   </div>
 </nav>
-<div class="row no-gutters mt-5">
-  <div class="col-md-2 bg-info mt-2 pr-3 pt-4">
+<div class="side_bar1 row no-gutters mt-5">
+  <div class="side_bar2 col-md-2 mt-2 pr-3 pt-4">
         <ul class="nav flex-column ml-3 mb-5">
       <li class="nav-item">
         <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
@@ -58,9 +58,9 @@ $pengguna=$_SESSION['user'];
     </ul>
   </div>
 
-  <div class="col-md-10 p-5 pt-2">
+  <div class="tambah1 col-md-10 p-5 pt-2">
     <h3><i class="fas fa-user-graduate mr-2"></i> Dashboard Admin</h3><hr>
-        <a href="tambah_mhs.php" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahmhs"> 
+        <a href="tambah_mhs.php" class="btn mb-2" data-toggle="modal" data-target="#tambahmhs"> 
         <i class="fas fa-plus-circle mr-2"></i>TAMBAH DATA MAHASISWA</a>
         <table class="table table-stripped table-bordered">
           <thead>
