@@ -12,6 +12,35 @@ body{
   background: white;
 }
 
+/* d_admin */
+.navbar{
+  background: #60C581;
+}
+.navbar .nav-link:hover{
+	background-color: grey;
+}
+.side_bar1 .side_bar2{
+  background: #71E398;
+}
+.tambah1 a{
+  background: #AFF4C6;
+}
+.display-4{
+	font-weight: bold;
+}
+.card-body-icon{
+	position: absolute;
+	z-index: 0;
+	top: 25px;
+	right: 4px;
+	opacity: 0.4;
+	font-size: 90px;
+}
+
+
+/* #### */
+
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -183,6 +212,12 @@ body{
 
 /* dashboard */
 /* content */
+
+.content .garis{
+  background: #71E398;
+  width: 97.5%;
+  height: 5px;
+}
 .content .row{
   align-items: center;
 }
@@ -373,6 +408,7 @@ body{
 
 .container {
   background-color: #71e398;
+  width: 100;
 }
 
 .container1 {
