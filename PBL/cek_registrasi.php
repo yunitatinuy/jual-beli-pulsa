@@ -8,15 +8,16 @@ include 'koneksi.php';
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
 
+    $pass_acak = password_hash($password, PASSWORD_DEFAULT);
     $data = mysqli_query($koneksi,"SELECT * FROM user WHERE username = '$username' and password='$password' ");
     if (mysqli_num_rows($data) > 0) {
         echo "<script>
-              alert('Username telah terdaftar');
+              alert('User baru berhasil didaftarkan');
               window.location = 'registrasi.php';
         </script>";
     }else {
         if ($password == $password2) {
-          $query = "INSERT INTO user VALUES('','$nama','$username','$email','$password','')";
+          $query = "INSERT INTO user VALUES('','$nama','$username','$email','$pass_acak','')";
           mysqli_query($koneksi,$query);
           echo "<script>
             alert('Data berhasil dikirim');
@@ -25,7 +26,7 @@ include 'koneksi.php';
           
         }else  {
           echo "<script>
-          alert('Password Tidak Sesuai');
+          alert('Konfirmasi password tidak sesuai');
           window.location = 'registrasi.php';
           </script>";
         }

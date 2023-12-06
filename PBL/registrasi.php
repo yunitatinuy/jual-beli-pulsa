@@ -27,7 +27,7 @@
     
 <div class="wrapper3 fadeIn first">
     <form action="cek_registrasi.php" method="POST">
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
         <div class="input-box">
             <input type="text" class="fadeIn second" name="nama" placeholder="Name" required>
             <i class=' fadeIn second'></i>
@@ -53,7 +53,7 @@
             <label><input type="checkbox">I agree to the terms of User</label>
         </div>
 
-        <button type="submit" class="btn fadeIn fifth">Login</button>
+        <button type="submit" class="btn fadeIn fifth">Register</button>
     </form>
 </div>
 </section>
