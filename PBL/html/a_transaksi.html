@@ -15,6 +15,8 @@ $pengguna=$_SESSION['user'];
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <title>ADMINISTRATOR</title>
   </head>
   <body>
@@ -41,27 +43,27 @@ $pengguna=$_SESSION['user'];
   <div class="side_bar2 col-md-2 mt-2 pr-3 pt-4">
         <ul class="nav flex-column ml-3 mb-5">
       <li class="nav-item">
-        <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
+        <a class="nav-link active text-white" href="a_dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a><hr class="bg-secondary">
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#"><i class="fas fa-user-graduate mr-2"></i>Transaksi</a><hr class="bg-secondary">
+        <a class="nav-link text-white" href="a_transaksi.html"><i class="fas fa-user-graduate mr-2"></i>Transaksi</a><hr class="bg-secondary">
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#"><i class="fas fa-chalkboard-teacher mr-2"></i>User</a><hr class="bg-secondary">
+        <a class="nav-link text-white" href="a_user.html"><i class="bi bi-person"></i> User</a><hr class="bg-secondary">
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#" ><i class="fas fa-users mr-2"></i>Laporan</a><hr class="bg-secondary">
+        <a class="nav-link text-white" href="#" ><i class="bi bi-flag"></i> Laporan</a><hr class="bg-secondary">
       </li>
         <li class="nav-item">
-        <a class="nav-link text-white" href="#" ><i class="far fa-calendar-alt mr-2"></i>#</a><hr class="bg-secondary">
+        <a class="nav-link text-white" href="a_provider.html" ><i class="bi bi-save2"></i> Provider</a><hr class="bg-secondary">
       </li>
     </ul>
   </div>
 
   <div class="tambah1 col-md-10 p-5 pt-2">
-    <h3><i class="fas fa-user-graduate mr-2"></i> Dashboard Admin</h3><hr>
+    <h3><i class="fas fa-user-graduate mr-2"></i> Transaksi</h3><hr>
         <a href="tambah_mhs.php" class="btn mb-2" data-toggle="modal" data-target="#tambahmhs"> 
-        <i class="fas fa-plus-circle mr-2"></i>TAMBAH DATA MAHASISWA</a>
+        <i class="fas fa-plus-circle mr-2"></i>TAMBAH DATA</a>
         <table class="table table-stripped table-bordered">
           <thead>
             <tr>
