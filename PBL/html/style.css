@@ -49,7 +49,7 @@ body{
   width: 78px;
   height: 100%;
   background: #60C581;
-  padding: 8px 16px;
+  padding-right: 18px;
   transition: var(--transition);
 }
 
@@ -109,6 +109,7 @@ body{
   height: 50px;
   min-width: 50px;
   font-size: 23px;
+  margin-left: 2px;
   text-align: justify;
   line-height: 50px;
 }
@@ -189,16 +190,12 @@ body{
 }
 
 .home .nav-top{
-    background: #71E398;
-    box-shadow: 1px 1px black;
+  background: #71E398;
+  box-shadow: 1px 1px rgb(255, 255, 255);
+  width: 100%;
 }
 
-.home .nav-top .img{
-  border-color: #fff;
-  border-style: solid;
-}
-
-.home .nav-top p{
+.home .nav-top a{
   font-size: 20px;
   font-weight: 500;
   color: #000;
@@ -207,6 +204,8 @@ body{
   white-space: nowrap;
   font-family: Arial sans-serif;
   font-size:xx-large;
+  text-align: center;
+  width: 100%;
 }
 
 
@@ -219,15 +218,20 @@ body{
   height: 5vh;
   border-radius: 20px;
   margin-bottom: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 .content .row{
   align-items: center;
+  margin-left: 70px;
+  margin-top: 40px;
 }
 
 .content .card{
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   background: #D9D9D9;
   border-radius: 20px;
+  margin-right: 120px;
+  margin-right: 120px;
 }
 
 .content .card p{
@@ -236,11 +240,17 @@ body{
   font-weight: bold;
 }
 
-.content .card a{
+.content .card .btn{
   background: #AFF4C6;
+  width: 9rem;
 }
+
 .content .card .detail{
-  background: #f4afaf;
+  text-decoration: none;
+  font-family: Arial sans-serif;
+  color: black;
+  margin-left: 10px;
+  font-size: 15px
 }
 
 .content .row .card-img{
@@ -248,7 +258,7 @@ body{
   height: 100px;
 }
 
-.content .row a:hover{
+.content .row .btn:hover{
   box-shadow: 1px 1px 1px; transform: scale(0.9);
 }
 
@@ -296,11 +306,6 @@ body{
   margin-bottom: 5px;
 }
 
-.popup_img img{
-  display: block;
-  width: 100%;
-}
-
 .popup_header{
   margin-left: 35px;
   text-transform: uppercase;
@@ -317,8 +322,28 @@ body{
   border-radius: 20px;
 }
 
+.popup_header .konfirmasi .nomorhp{
+  background: #AFF4C6;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border-color: #AFF4C6;
+}
+
+/* input[type="number"]{
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input [type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+} */
+
 .logo_bayar a{
   margin-left: 20px;
+}
+.logo_bayar a:hover{
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px; transform: scale(0.9);
 }
 
 .popup_text{
@@ -330,11 +355,17 @@ body{
   column-gap: 48px;
 }
 
-.popup_btn{
-  background-color: #fff;
+.popup_content a.popup_btn{
+  background-color: #71e398;
   align-items: center;
   margin-bottom: 5px;
   margin-top: 5px;
+  width: 80%;
+  height: 5vh;
+  border-radius: 20px;
+}
+.popup_content a.popup_btn:hover{
+  background: #b3b3b3;
 }
 
 #popup:target{
@@ -468,6 +499,10 @@ body{
   margin-bottom: 5px;
   margin-top: 5px;
 }
+.popup1_content a.popup_btn:hover{
+  background: #b3b3b3;
+  width: 80%;
+}
 
 #popup1:target{
   opacity: 1;
@@ -495,6 +530,97 @@ body{
 .popup1_close:active{
   color: #555;
 }
+/* popup1 end */
+
+/* popup2 */
+.popup2{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+}
+
+.popup2_content{
+  width: 40%;
+  height: 35vh;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.25);
+  opacity: 0;
+  transition: all .5s .1s;
+}
+
+.popup2_content .product{
+  width: 100%;
+  height: 5vh;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000;
+  font-size: 30px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup2_header{
+  margin-left: 6px;
+  width: 98%;
+  height: 10vh;
+  background: #fbfbfb;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.popup2_text{
+  margin-left: 6px;
+  width: 98%;
+  height: 10vh;
+  background: #fbfbfb;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.popup2 .btn{
+  background: #86D8BA;
+}
+
+#popup2:target{
+  opacity: 1;
+  visibility: visible;
+}
+
+#popup2:target .popup2_content{
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup2_close:link,
+.popup2_close:visited{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  text-decoration: none;
+  color: #000;
+  line-height: 1;
+  transition: all .2s;
+  font-size: 20px;
+  display: inline-block;
+}
+.popup2_close:hover,
+.popup2_close:active{
+  color: #555;
+}
+/* popup2 end */
 
 /* popup end */
 
