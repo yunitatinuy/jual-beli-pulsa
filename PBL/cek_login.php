@@ -17,7 +17,7 @@ if (password_verify($password, $row['password'])) {
         $_SESSION['user'] = $row['username'];
         $_SESSION['pass'] = $row['password'];
     if ($row['role'] == 1) {
-        header("location:html/dashboard.html");
+        header("location:./admin/index.php");
     } else if ($row['role'] == 0) {
         header("location:html/dashboard.html");
     }
