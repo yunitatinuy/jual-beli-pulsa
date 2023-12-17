@@ -1,3 +1,16 @@
+<?php
+if (isset($_POST['save'])) {
+    $nama = $_FILES['foto']['name'];
+    $lokasi = $_FILES['foto']['tmp_name'];
+    move_uploaded_file($lokasi, "foto_produk/" . $nama);
+    $koneksi->query("INSERT INTO proveder(id_kategori, nama_provider, detail, nominal, harga, foto) VALUES('$_POST[id_kategori]','$_POST[nama_provider]','$_POST[detail]','$_POST[nominal]','$_POST[harga]','$nama')");
+
+    echo "<div class='alert alert-info'>Data Tersimpan</div>";
+    echo "<meta http-equiv='refresh' content='1;url=provider.php'>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +28,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">SELAMAT DATANG ADMIN</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data- target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data- target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,8 +51,7 @@
         <div class="col col-md-2 mt-3 pr-3 pt-4">
             <ul class="nav flex-column ml-3 mb-5">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href=""><i
-                            class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+                    <a class="nav-link active text-white" href=""><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
                     <hr class="bg-secondary" />
                 </li>
                 <li class="nav-item">
@@ -57,7 +68,7 @@
             <h3><i class="fas fa-solid fa-sim-card mr-2"></i> Input Data Baru</h3>
             <hr />
             <form action="simpan_prv.php" method="post">
-            <div class="form-row">
+                <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Kategori</label>
                         <input type="text" name="id_kategori" class="form-control" id="id_kategori" />
@@ -87,7 +98,11 @@
                         <input type="text" name="harga" class="form-control" id="harga" />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">SIMPAN</button>
+                <div class="form-row">
+                    <label>Foto</label>
+                    <input type="file" name="foto" class="form-control" id="foto" />
+                </div>
+                <button class="btn btn-primary" name="save">SIMPAN</button>
             </form>
         </div>
     </div>
