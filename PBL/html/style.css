@@ -47,10 +47,13 @@ body{
   left: 0;
   z-index: 100;
   width: 78px;
-  height: 100%;
+  margin-top: 66px;
+  height: 91%;
   background: #60C581;
   padding-right: 18px;
   transition: var(--transition);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .sidebar.expand {
@@ -181,8 +184,7 @@ body{
 .home {
   position: relative;
   top: 0;
-  left: 78px;
-  width: calc(100% - 78px);
+  width: 100%;
   min-height: 100vh;
   background: #ffffff;
   z-index: 6;
@@ -193,9 +195,15 @@ body{
   background: #71E398;
   box-shadow: 1px 1px rgb(255, 255, 255);
   width: 100%;
+  height: 65px;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
 }
-
-.home .nav-top a{
+.home .nav-top .nav-name{
   font-size: 20px;
   font-weight: 500;
   color: #000;
@@ -205,18 +213,28 @@ body{
   font-family: Arial sans-serif;
   font-size:xx-large;
   text-align: center;
-  width: 100%;
+  width: 90%;
+}
+.home .nav-top a{
+  margin-right: 20px;
+  font-size: x-large;
+  color: black;
 }
 
 
 /* dashboard */
 /* content */
-
+.content{
+  margin-left: 50px;
+  padding-top: 50px;
+  padding-left: 70px;
+}
 .content .garis{
   background: #71E398;
   width: 97.5%;
   height: 5vh;
   border-radius: 20px;
+  margin-top: 50px;
   margin-bottom: 10px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
@@ -639,6 +657,8 @@ input [type="number"]::-webkit-inner-spin-button{
 /* footer */
 
 .footer{
+  margin-left: 50px;
+  padding-left: 70px;
   background: #B3B3B3;
 }
 
@@ -651,16 +671,29 @@ input [type="number"]::-webkit-inner-spin-button{
 /* dashboard end */
 
 /* pengaturan */
+
+.content1{
+  margin-left: 50px;
+  padding-top: 50px;
+  padding-left: 10px;
+}
 .kelas{
   background: white;
   width: 100%;
   font-weight: bold;
   font-size: xx-large;
+  padding: 30px;
+  margin: 20px;
+}
+.kelas1{
+  padding-left: 2px;
 }
 
 .dashboard-content{
   background-color: #D1FFE0;
   height: 546px;
+  padding-left: 90px;
+  margin-left: 80px;
 }
 
 .dashboard-content .dropdown1:hover{
@@ -679,8 +712,19 @@ input [type="number"]::-webkit-inner-spin-button{
 
 /* tentang_kami */
 .jumbotron {
+  padding-left: 70px;
   padding-top: 3rem;
   background-color: #f2ffe9;
+}
+
+#about{
+  padding-left: 70px;
+}
+#anggota{
+  padding-left: 70px;
+}
+#contact{
+  padding-left: 70px;
 }
 
 .container {
