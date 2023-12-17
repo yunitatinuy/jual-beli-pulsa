@@ -19,7 +19,7 @@ if (password_verify($password, $row['password'])) {
     if ($row['role'] == 1) {
         header("location:./admin/index.php");
     } else if ($row['role'] == 0) {
-        header("location:html/dashboard.html");
+        header("location:./pembeli/dashboard.php");
     }
 }
 }else {
