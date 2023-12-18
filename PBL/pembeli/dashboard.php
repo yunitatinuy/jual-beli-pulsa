@@ -109,19 +109,16 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
       <!-- popup 1 -->
       <?php
-      $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$_GET[id]'");
+      $ambil = $koneksi->query("SELECT * FROM proveder");
       $detail = $ambil->fetch_assoc();
-      $id_provider = $_GET['id'];
 
       if (isset($_GET['halaman'])) {
         if ($_GET['halaman'] == "detail") {
-            include 'popup1.php';
+          include 'popup1.php';
         } elseif ($_GET['halaman'] == "beli") {
-            include 'popup.php';
+          include 'popup.php';
         }
-    } else {
-        include 'dasboard.php';
-    }
+      }
       ?>
 
 

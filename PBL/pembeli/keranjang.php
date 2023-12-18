@@ -5,7 +5,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
 //jika isi keranjang kosong
 if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
-    echo "<script>alert('Keranjang kosong, silahkan berbelanja dahulu')</script>";
+    echo "<script>alert('Keranjang kosong, silahkan belanja dahulu')</script>";
     echo "<script>location='dashboard.php';</script>";
 }
 ?>
@@ -95,10 +95,9 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             <div class="container0">
                 <div class="row">
                     <div class="col">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
                                     <th scope="col">Provider</th>
                                     <th scope="col">Nominal</th>
                                     <th scope="col">Jumlah</th>
@@ -110,26 +109,24 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                 <?php foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) : ?>
 
                                     <?php
-                                    $nomor = 1;
-                                    $ambil = $koneksi->query("SELECT * FROM proveder");
-                                    $pecah = $ambil->fetch_assoc();
+                                    $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
+                                    while ($pecah = $ambil->fetch_assoc()) {
                                     ?>
-                                    <tr>
-                                        <td><?php echo $nomor; ?></td>
-                                        <td><?php echo $pecah["nama_provider"] ?></td>
-                                        <td><?php echo $pecah["nominal"] ?></td>
-                                        <td><?php echo $jumlah; ?></td>
-                                        <td><?php echo $pecah["harga"] * $jumlah ?></td>
-                                        <td>
-                                            <a href="hapuskeranjang.php?id=<?php echo $id_provider ?>" class="btn btn-danger btn-xs">Hapus</a>
-                                        </td>
-                                    </tr>
-                                    <?php $nomor++; ?>
+                                        <tr>
+                                            <td><?php echo $pecah["nama_provider"]; ?></td>
+                                            <td>Rp<?php echo number_format($pecah["nominal"]) ?></td>
+                                            <td><?php echo $jumlah; ?></td>
+                                            <td>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></td>
+                                            <td>
+                                                <a href="hapuskeranjang.php?id=<?php echo $id_provider ?>" class="btn btn-danger btn-xs">Hapus</a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
 
-                        <a href="dashboard.php" class="btn btn-default">Lanjutkan Belanja</a>
+                        <a href="dashboard.php" class="btn btn-success">Lanjutkan Belanja</a>
                         <a href="checkout.php" class="btn btn-primary">Checkout</a>
 
                     </div>
