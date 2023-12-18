@@ -1,13 +1,13 @@
-<?php 
+<?php
 session_start();
 
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
+$id_provider = $_GET['id'];
 
 //jika isi keranjang kosong
-if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
-{
-	echo "<script>alert('Keranjang kosong, silahkan berbelanja dahulu')</script>";
-	echo "<script>location='index.php';</script>";
+if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
+    echo "<script>alert('Keranjang kosong, silahkan berbelanja dahulu')</script>";
+    echo "<script>location='index.php';</script>";
 }
 ?>
 
@@ -21,7 +21,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <title>Jual Beli Pulsa</title>
@@ -89,52 +89,72 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 
         <!-- dashboard -->
         <div class="content">
-            <div class="garis btn-danger">
-
-            </div>
 
             <!-- popup -->
-            <a href="#popup1.php" class="text-black">
-                        <h2><i class="bi bi-arrow-left"></i></h2>
-                    </a><center><h3>Transaksi Pembayaran</h3></center></h3>
-                    <div class="popup_img">
-                        <img src="" alt="">
-                        <a href="#" class="popup_close">&times;</a>
-                    </div>
-                    <div class="popup_header">
-                        Nomor Handphone
-                        <div class="konfirmasi">
-                            <input type="number" inputmode="numeric" name="nomorhp" class="nomorhp">
-                        </div>
-                        Pulsa
-                        <div class="konfirmasi"></div>
-                        Operator
-                        <div class="konfirmasi"></div>
-                        <div class="logo_bayar">Pilih Operator Pembayaran
-                            <a href=""><img src="gopay.png" width="60" class="rounded-circle" alt="..."></a>
-                            <a href=""><img src="shoppe.png" width="60" class="rounded-circle" alt="..."></a>
-                            <a href=""><img src="dana.png" width="60" class="rounded-circle" alt="..."></a>
-                        </div>
-                    </div>
-                    <div class="popup_text">
-                        <div class="popup_left">
-                            <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
-                        </div>
-                        <div class="popup_center">
-                            <a>Rincian Pembayaran:<br>
-                                Subtotal Produk<br>
-                                Biaya Layanan<br>
-                                Metode Pembayaran<br>
-                                Total Pembayaran</a>
-                        </div>
-                        <div class="popup_right">
-                            <a><br>1<br>100<br>dana<br>Rp10.100</a>
-                        </div>
-                    </div>
-                    <center><a href="#" class="btn popup_btn">Konfirmasi</a> </center>
+            <a href="keranjang.php" class="text-black"><br>
+                <h2><i class="bi bi-arrow-left"></i></h2>
+            </a>
+            <center>
+                <h3>Transaksi Pembayaran</h3>
+            </center>
+            </h3>
+
+            <?php
+            $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
+            $pecah = $ambil->fetch_assoc();
+            ?>
+
+            <div class="popup_header">
+                Nomor Handphone
+                <div class="konfirmasi">
+                    <input type="number" min="0" max="13" inputmode="numeric" name="nomorhp" class="nomorhp" placeholder="Masukkan nomor anda">
+                </div>
+                Pulsa
+                <div class="konfirmasi">
+                    <div class="bar">Rp<?php echo number_format($pecah["nominal"]) ?> </div>
+                </div>
+                Operator
+                <div class="konfirmasi">
+                    <div class="bar"><?php echo $pecah["nama_provider"] ?> </div>
+                </div>
+                <div class="logo_bayar">Pilih Operator Pembayaran
+                    <a href=""><img src="gopay.png" width="60" class="rounded-circle" alt="..."></a>
+                    <a href=""><img src="shoppe.png" width="60" class="rounded-circle" alt="..."></a>
+                    <a href=""><img src="dana.png" width="60" class="rounded-circle" alt="..."></a>
                 </div>
             </div>
-            <!-- popup end -->
+
+
+
+
+
+
+
+            <div class="popup_text">
+                <div class="popup_left">
+                    <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
+                </div>
+                <div class="popup_center">
+                    <a><strong>Rincian Pembayaran:</strong><br>
+                        Subtotal Produk<br>
+                        Biaya Layanan<br>
+                        Metode Pembayaran<br>
+                        Total Pembayaran</a>
+                </div>
+                <div class="popup_right">
+                    <a>
+                        <br>1
+                        <br>100
+                        <br>dana
+                        <br>Rp10.100
+                    </a>
+                </div>
+            </div>
+            <br>
+            <center><a href="#" class="btn btn-success">Konfirmasi</a> </center>
+        </div>
+        </div>
+        <!-- popup end -->
 
     </section>
 

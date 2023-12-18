@@ -82,10 +82,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
         <!-- navtop end -->
 
         <!-- dashboard -->
-        <div class="content">
-            <div class="garis btn-danger">
-
-            </div>
+        <div class="content" style="margin-top: 40px;">
 
             <!-- popup 1 -->
             <center>

@@ -87,17 +87,19 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
 
         <!-- dashboard -->
         <div class="content">
-            <div class="garis btn-danger">
-
-            </div>
 
             <!-- keranjang -->
+            <center style="margin-top: 40px;">
+                <h3>Keranjang</h3>
+            </center>
+            </h3>
             <div class="container0">
                 <div class="row">
                     <div class="col">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Provider</th>
                                     <th scope="col">Nominal</th>
                                     <th scope="col">Jumlah</th>
@@ -106,6 +108,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $nomor = 1; ?>
                                 <?php foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) : ?>
 
                                     <?php
@@ -113,21 +116,23 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                     while ($pecah = $ambil->fetch_assoc()) {
                                     ?>
                                         <tr>
+                                            <td><?php echo $nomor; ?></td>
                                             <td><?php echo $pecah["nama_provider"]; ?></td>
                                             <td>Rp<?php echo number_format($pecah["nominal"]) ?></td>
                                             <td><?php echo $jumlah; ?></td>
                                             <td>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></td>
                                             <td>
                                                 <a href="hapuskeranjang.php?id=<?php echo $id_provider ?>" class="btn btn-danger btn-xs">Hapus</a>
+                                                <a href="checkout.php?id=<?php echo $id_provider ?>" class="btn btn-primary btn-xs">Checkout</a>
                                             </td>
                                         </tr>
+                                        <?php $nomor++; ?>
                                     <?php } ?>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
 
                         <a href="dashboard.php" class="btn btn-success">Lanjutkan Belanja</a>
-                        <a href="checkout.php" class="btn btn-primary">Checkout</a>
 
                     </div>
                 </div>
