@@ -10,6 +10,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     echo "<script>alert('Keranjang kosong, silahkan berbelanja dahulu')</script>";
     echo "<script>location='dashboard.php';</script>";
 }
+
 ?>
 
 
@@ -103,7 +104,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
 
             <form action="" method="post">
                 <?php
-                $nomor = $koneksi->query("SELECT * FROM nohp WHERE id_nohp='$id_nohp'");
+                $nomor = $koneksi->query("SELECT * FROM nohp ORDER BY id_nohp DESC LIMIT 1");
                 $detail = $nomor->fetch_assoc();
                 ?>
                 <div class="popup_header">
@@ -126,6 +127,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                         </select>
                     </div>
                 </div>
+                <?php foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) : ?>
                 <?php
                 $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
                 $pecah = $ambil->fetch_assoc();
@@ -145,7 +147,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                         <a><br></a>
                         <a>Rp<?php echo number_format($pecah["nominal"]) ?><br></a>
                         <a>Rp2,000<br></a>
-                        <a>Rp<?php echo number_format($pecah["harga"]) ?></a>
+                        <a>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></a>
                     </div>
                 </div>
                 <br>
@@ -164,10 +166,12 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             $id_nohp = $_POST["id_nohp"];
             $id_metode_bayar = $_POST["id_metode_bayar"];
             $tanggal_pembelian = date("Y-m-d");
-            $total_pembelian = $pecah["harga"];
+            $total_pembelian = $pecah["harga"] * $jumlah;
+
+            
 
             //1. menyiimpan data ke tabel pembelian
-            $koneksi->query("INSERT INTO transaksi_penjualan (id, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('$id', '$id_nohp', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
+            $koneksi->query("INSERT INTO transaksi_penjualan (id, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('', '', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
 
             //mendapatkan id_pembelian barusan terjadi
             $id_pembelian_barusan = $koneksi->insert_id;
@@ -182,7 +186,9 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             echo "<script>alert('Pembelian Sukses')</script>";
             echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
         }
+        
         ?>
+        <?php endforeach  ?>
     </section>
 
 
