@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['user'])){
+header('location:../login.php');
+exit;
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -73,7 +81,7 @@
           ?>
             <tr>
               <td><?php echo $no++;?></td>
-              <td><?php echo $data['id'];?></td>
+              <td><?php echo $data['id_user'];?></td>
               <td><?php echo $data['nama'];?></td>
               <td><?php echo $data['email'];?></td>
               <td><?php 
@@ -85,15 +93,15 @@
                 ?></td>
               <td>
                 <i class="fas fa-edit bg-success p-2 text-white rounded"></i>
-                <a href="ubah_user.php" data-toggle="modal" data-target="#edituser<?php echo $data['id'];?>">Edit</a>
+                <a href="ubah_user.php" data-toggle="modal" data-target="#edituser<?php echo $data['id_user'];?>">Edit</a>
                 <i class="fas fa-trash-alt bg-danger p-2 text-white rounded"></i>
-                <a href="hapus_user.php" data-toggle="modal" data-target="#deleteuser<?php echo $data['id'];?>">Delete</a>
+                <a href="hapus_user.php" data-toggle="modal" data-target="#deleteuser<?php echo $data['id_user'];?>">Delete</a>
               </td>
             </tr>
 
             <!-- update modal -->
 <div class="example-modal">
-<div class="modal fade" id="edituser<?php echo $data['id'];?>" role="dialog">
+<div class="modal fade" id="edituser<?php echo $data['id_user'];?>" role="dialog">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
@@ -102,14 +110,14 @@
 <div class="modal-body">
 <form action="update_user.php" method="post" role="form">
 <?php
-$id = $data['id'];
-$query1 = mysqli_query($koneksi, "SELECT * FROM user WHERE id='$id'"); while ($data1 = mysqli_fetch_assoc($query1)) {
+$id_user = $data['id_user'];
+$query1 = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id_user'"); while ($data1 = mysqli_fetch_assoc($query1)) {
 ?>
 <div class="form-group">
 <div class="row">
 <label class="col-sm-3 control-label text-right">Id Pengguna</label>
-<div class="col-sm-8"><input type="text" class="form-control" name="id" value="<?php echo
-$data1['id']; ?>" ReadOnly></div>
+<div class="col-sm-8"><input type="text" class="form-control" name="id_user" value="<?php echo
+$data1['id_user']; ?>" ReadOnly></div>
 </div>
 </div>
 <div class="form-group">
@@ -144,7 +152,7 @@ $data1['role']; ?>"></div>
 
             <!-- modal delete -->
 <div class="example-modal">
-<div id="deleteuser<?php echo $data['id']; ?>" class="modal fade" role="dialog" style="display:none;">
+<div id="deleteuser<?php echo $data['id_user']; ?>" class="modal fade" role="dialog" style="display:none;">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
@@ -155,7 +163,7 @@ $data1['role']; ?>"></div>
 </div>
 <div class="modal-footer">
 <button id="nodelete" type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancle</button>
-<a href="hapus_user.php?id=<?php echo $data['id']; ?>" class="btn btn-primary">Delete</a>
+<a href="hapus_user.php?id_user=<?php echo $data['id_user']; ?>" class="btn btn-primary">Delete</a>
 </div>
 </div>
 </div>

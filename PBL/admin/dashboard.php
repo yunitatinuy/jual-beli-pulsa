@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['user'])){
+header('location:../login.php');
+exit;
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -101,19 +109,14 @@
         <?php
         include 'koneksi.php';
 
-        $query = mysqli_query($koneksi, "SELECT * FROM proveder");
         $no = 1;
-        while ($data = mysqli_fetch_assoc($query)) {
+        $query = mysqli_query($koneksi, "SELECT * FROM proveder
+                INNER JOIN kategori ON proveder.id_kategori = kategori.id_kategori");
+                while ($data = mysqli_fetch_array($query)) {
         ?>
           <tr>
             <td><?php echo $no++; ?></td>
-            <td><?php
-                if ($data['id_kategori'] == 1) {
-                  echo 'Pulsa Elektrik';
-                } else {
-                  echo 'Kuota Internet';
-                }
-                ?></td>
+            <td><?php echo $data['nama_kategori']; ?></td>
             <td><?php echo $data['nama_provider']; ?></td>
             <td><?php echo $data['detail']; ?></td>
             <td><?php echo $data['nominal']; ?></td>
@@ -146,7 +149,7 @@
         ?>
           <tr>
             <td><?php echo $no++; ?></td>
-            <td><?php echo $data['id']; ?></td>
+            <td><?php echo $data['id_user']; ?></td>
             <td><?php echo $data['nama']; ?></td>
             <td><?php echo $data['email']; ?></td>
             <td><?php

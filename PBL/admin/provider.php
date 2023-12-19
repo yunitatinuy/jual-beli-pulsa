@@ -1,10 +1,9 @@
 <?php
 session_start();
-//koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "db_admin");
-
-$ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$_GET[id]'");
-$pecah = $ambil->fetch_assoc();
+if(!isset($_SESSION['user'])){
+header('location:../login.php');
+exit;
+}
 
 ?>
 
@@ -86,20 +85,15 @@ $pecah = $ambil->fetch_assoc();
         </thread>
         <?php
         include 'koneksi.php';
-
-        $query = mysqli_query($koneksi, "SELECT * FROM proveder");
+        
         $no = 1;
-        while ($data = mysqli_fetch_assoc($query)) {
+        $query = mysqli_query($koneksi, "SELECT * FROM proveder
+                INNER JOIN kategori ON proveder.id_kategori = kategori.id_kategori");
+                while ($data = mysqli_fetch_array($query)) {
         ?>
           <tr>
             <td><?php echo $no++; ?></td>
-            <td><?php
-                if ($data['id_kategori'] == 1) {
-                  echo 'Pulsa Elektrik';
-                } else {
-                  echo 'Kuota Internet';
-                }
-                ?></td>
+            <td><?php echo $data['nama_kategori']; ?></td>
             <td><?php echo $data['nama_provider']; ?></td>
             <td><?php echo $data['detail']; ?></td>
             <td><?php echo $data['nominal']; ?></td>
@@ -228,6 +222,11 @@ $pecah = $ambil->fetch_assoc();
 
   </div>
   <!-- Simpan Modal  -->
+  <?php
+    $querykategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+
+  ?>
+
   <div class="example-modal">
     <div id="tambahprv" class="modal fade" role="dialog" style="display:none;">
       <div class="modal-dialog">
@@ -237,11 +236,21 @@ $pecah = $ambil->fetch_assoc();
           </div>
           <div class="modal-body">
             <form action="simpan_prv.php" method="post" role="form">
-              <div class="form-group">
-                <div class="row">
-                  <label class="col-sm-3 control-label text-right">ID Kategori</label>
-                  <div class="col-sm-8"><input type="text" class="form-control" name="id_kategori" placeholder="Kategori" value="" Required></div>
-                </div>
+            <div class="form-group">
+              <div class="row">
+              <label class="col-sm-3 control-label text-right">Kategori</label>
+              <div class="col-sm-8">
+                <select name="id_kategori" class="form-control" placeholder="Kategori" Required >
+                  <option value=""> Pilih Kategori</option>
+                    <?php
+                      while ($data = mysqli_fetch_array($querykategori)) {
+                      ?>
+                        <option value="<?php echo $data['id_kategori'];?>"> <?php echo $data['nama_kategori']; ?> </option>
+                      <?php
+                      }
+                      ?>
+              </select></div>
+              </div>
               </div>
               <div class="form-group">
                 <div class="row">
