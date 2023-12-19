@@ -15,7 +15,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" style="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <title>Jual Beli Pulsa</title>
@@ -23,7 +23,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #F2FFE9;">
+<body>
 
   <!-- navbarside -->
   <section class="sidebar">
@@ -84,7 +84,12 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
     <!-- dashboard -->
     <div class="content">
       <div class="garis btn-danger">
-
+        <div class="text_garis">
+          <h1>Ayo beli pulsa di <span>QUICK.TOP!!</span></h1>
+          <p>Mau belanja pulsa yang Mahal? Atau mau habisin uang? disinilah tempatnya <br>dijamin Aman, Mahal, Dan Prosesnya Lama<br><br>
+          #yangmampumampuaja #mahal #proseslama #quicktop</p>
+        </div>
+        <img src="logo/hp.png">
       </div>
 
       <!-- card -->
@@ -94,8 +99,8 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
         <?php $ambil = $koneksi->query("SELECT * FROM proveder"); ?>
         <?php while ($perproduk = $ambil->fetch_assoc()) {
         ?>
-          <div class="card" style="width: 13rem;">
-            <center><img src="foto_produk/<?php echo $perproduk['foto']; ?>" class="card-img" width="200"></center>
+          <div class="card">
+            <center><img src="foto_produk/<?php echo $perproduk['foto']; ?>" class="card-img"></center>
             <div class="card-body bg-none">
               <h5 class="card-title"><?php echo $perproduk['nama_provider']; ?></h5>
               <p class="card-text">Rp<?php echo number_format($perproduk['nominal']); ?></p><br>

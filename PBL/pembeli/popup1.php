@@ -113,7 +113,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
                     </a>
                 </div>
 
-                <center><a href="popup.php?halaman=beli&id=<?php echo $detail['id_provider'] ?>" class="btn btn-light btn-danger">Beli</a> </center>
+                <center><a href="popup.php?halaman=beli&id=<?php echo $detail['id_provider'] ?>" class="btn popup1_btn">Beli</a> </center>
         </div>
     <?php } ?>
     </div>
