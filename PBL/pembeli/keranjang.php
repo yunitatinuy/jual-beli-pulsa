@@ -123,7 +123,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                             <td>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></td>
                                             <td>
                                                 <a href="hapuskeranjang.php?id=<?php echo $id_provider ?>" class="btn btn-danger btn-xs">Hapus</a>
-                                                <a href="checkout.php?id=<?php echo $id_provider ?>" class="btn btn-primary btn-xs">Checkout</a>
+                                                <a href="konfirmasi.php?id=<?php echo $id_provider ?>" class="btn btn-primary btn-xs" name="checkout">Checkout</a>
                                             </td>
                                         </tr>
                                         <?php $nomor++; ?>

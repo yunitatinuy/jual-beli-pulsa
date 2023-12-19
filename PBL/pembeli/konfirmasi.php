@@ -96,95 +96,29 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                 <h2><i class="bi bi-arrow-left"></i></h2>
             </a>
             <center>
-                <h3>Transaksi Pembayaran</h3>
+                <h3>Masukkan Nomor Handphone</h3>
             </center>
             </h3>
 
-
             <form action="" method="post">
-                <?php
-                $nomor = $koneksi->query("SELECT * FROM nohp WHERE id_nohp='$id_nohp'");
-                $detail = $nomor->fetch_assoc();
-                ?>
                 <div class="popup_header">
                     Nomor Handphone
                     <div class="konfirmasi">
-                        <?php echo $detail["no_telp"] ?>
+                        <input type="number" inputmode="numeric" class="nomorhp" name="no_telp" placeholder="Masukkan nomor anda">
                     </div>
-                    <div class="logo_bayar">Pilih Operator Pembayaran
-                        <select class="konfirmasi" name="id_metode_bayar">
-                            <option value="">Pilih Operator Pembayaran</option>
-                            <?php
-                            $ambil = $koneksi->query("SELECT * FROM metode_bayar");
-                            while ($perbayar = $ambil->fetch_assoc()) {
-                            ?>
-                                <option value="<?php echo $perbayar["id_metode_bayar"] ?>">
-                                    <?php echo $perbayar['jenis'] ?> -
-                                    <?php echo $perbayar['kode'] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                    <br>
+                    <center><button class="btn btn-success" name="konfirmasi">Selanjutnya</button>
                 </div>
-                <?php
-                $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
-                $pecah = $ambil->fetch_assoc();
-
-                ?>
-                <div class="popup_text">
-                    <div class="popup_left">
-                        <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
-                    </div>
-                    <div class="popup_center">
-                        <a><strong>Rincian Pembayaran : </strong><br></a>
-                        <a>Subtotal Produk<br></a>
-                        <a>Biaya Layanan<br></a>
-                        <a>Total Pembayaran</a>
-                    </div>
-                    <div class="popup_right">
-                        <a><br></a>
-                        <a>Rp<?php echo number_format($pecah["nominal"]) ?><br></a>
-                        <a>Rp2,000<br></a>
-                        <a>Rp<?php echo number_format($pecah["harga"]) ?></a>
-                    </div>
-                </div>
-                <br>
-                <center><button class="btn btn-success" name="konfirmasi">Konfirmasi</button>
+            </form>
         </div>
-        </div>
-        </form>
-        <!-- popup end -->
-
-        <?php
-        $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
-        $pecah = $ambil->fetch_assoc();
-
-        if (isset($_POST['konfirmasi'])) {
-            $id = $_POST["id"];
-            $id_nohp = $_POST["id_nohp"];
-            $id_metode_bayar = $_POST["id_metode_bayar"];
-            $tanggal_pembelian = date("Y-m-d");
-            $total_pembelian = $pecah["harga"];
-
-            //1. menyiimpan data ke tabel pembelian
-            $koneksi->query("INSERT INTO transaksi_penjualan (id, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('$id', '$id_nohp', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
-
-            //mendapatkan id_pembelian barusan terjadi
-            $id_pembelian_barusan = $koneksi->insert_id;
-            foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) {
-                $koneksi->query("INSERT INTO transaksi (id_transaksi_penjualan, id_provider, jumlah) VALUES('$id_pembelian_barusan','$id_provider','$jumlah')");
-            }
-
-            //mengosongkan keranjang belanja
-            unset($_SESSION["keranjang"]);
-
-            //tampilan dialihkan ke halaman nota, nota dari pembelian yang barusan
-            echo "<script>alert('Pembelian Sukses')</script>";
-            echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
-        }
-        ?>
     </section>
 
+    <?php
+    if (isset($_POST['konfirmasi'])) {
+        mysqli_query($koneksi, "INSERT INTO nohp SET no_telp = '$_POST[no_telp]'");
+        echo "<script>location='checkout.php?id=$id_provider';</script>";
+    }
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
