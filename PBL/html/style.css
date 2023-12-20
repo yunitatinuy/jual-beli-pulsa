@@ -709,7 +709,65 @@ input [type="number"]::-webkit-inner-spin-button{
 
 /* pengaturan end */
 
-/* transaksi */
+/* profil */
+.dashboard-content1{
+  background-color: #D1FFE0;
+  height: 100vh;
+  width: 100%;
+  padding-left: 70px;
+  margin-top: 65px;
+}
+.dashboard-content1 .pengaturan-profil{
+  margin-left: 43%;
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: 20px;
+}
+.dashboard-content1 img{
+  justify-content: center;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 44%;
+}
+.dashboard-content1 .dropdown .dropdown2{
+  background-color: #AFF4C6;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  border-radius: 10px;
+  border-style: none;
+  width: 95%;
+  height: 40px;
+}
+.dashboard-content1 .kembali-pengaturan{
+  margin-left: 30px;
+  padding-top: 100px;
+  text-decoration: none;
+  color: black;
+}
+/* profil end */
+
+/* riwayat */
+.dashboard-content1 .riwayat{
+  padding-left: 20px;
+  width: 100%;
+}
+.dashboard-content1 .riwayat0{
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 20px;
+}
+.dashboard-content1 .riwayat0 a{
+  text-decoration: none;
+  color: #000;
+}
+.dashboard-content1 .riwayat1{
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+/* riwayat end */
 
 /* tentang_kami */
 .jumbotron {
