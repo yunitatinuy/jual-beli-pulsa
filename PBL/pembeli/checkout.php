@@ -160,7 +160,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
         <!-- popup end -->
 
         <?php
-        $ambil = $koneksi->query("SELECT * FROM proveder, nohp");
+        $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
         $pecah = $ambil->fetch_assoc();
         $nomor = $koneksi->query("SELECT * FROM nohp ORDER BY id_nohp DESC LIMIT 1");
         $detail = $nomor->fetch_assoc();
