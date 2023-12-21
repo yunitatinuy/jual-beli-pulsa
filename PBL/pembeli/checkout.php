@@ -87,7 +87,6 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href=""><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 
@@ -95,7 +94,10 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
         <div class="content">
 
             <!-- popup -->
-            <a href="keranjang.php" class="text-black"><br>
+            <?php $ambil = $koneksi->query("SELECT * FROM proveder"); ?>
+            <?php $perproduk = $ambil->fetch_assoc();
+            ?>
+            <a href="konfirmasi.php?halaman=detail&id=<?php echo $perproduk['id_provider'] ?>" class="text-black"><br>
                 <h2><i class="bi bi-arrow-left"></i></h2>
             </a>
             <center>
@@ -150,7 +152,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                         <a><br></a>
                         <a>Rp<?php echo number_format($pecah["nominal"]) ?><br></a>
                         <a>Rp2,000<br></a>
-                        <a>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></a>
+                        <a>Rp<?php echo number_format($pecah["harga"]) ?></a>
                     </div>
                 </div>
                 <br>
@@ -171,7 +173,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             $id_nohp = $detail["id_nohp"];
             $id_metode_bayar = $_POST["id_metode_bayar"];
             $tanggal_pembelian = date("Y-m-d");
-            $total_pembelian = $pecah["harga"] * $jumlah;
+            $total_pembelian = $pecah["harga"];
 
             
 

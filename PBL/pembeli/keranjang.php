@@ -93,6 +93,9 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
         <div class="content">
 
             <!-- keranjang -->
+            <a href="dashboard.php" class="text-black"><br>
+                <h2><i class="bi bi-arrow-left"></i></h2>
+            </a>
             <center style="margin-top: 40px;">
                 <h3>Keranjang</h3>
             </center>
@@ -104,8 +107,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                             <tr>
                                 <th scope="col">Provider</th>
                                 <th scope="col">Nominal</th>
-                                <th scope="col">Jumlah</th>
-                                <th scope="col">Subtotal</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -119,8 +121,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                                     <tr>
                                         <td><?php echo $pecah["nama_provider"]; ?></td>
                                         <td>Rp<?php echo number_format($pecah["nominal"]) ?></td>
-                                        <td><?php echo $jumlah; ?></td>
-                                        <td>Rp<?php echo number_format($pecah["harga"] * $jumlah) ?></td>
+                                        <td>Rp<?php echo number_format($pecah["harga"]) ?></td>
                                         <td>
                                             <a href="hapuskeranjang.php?id=<?php echo $id_provider ?>" class="btn btn-danger btn-xs">Hapus</a>
                                             <a href="konfirmasi.php?id=<?php echo $id_provider ?>" class="btn btn-primary btn-xs" name="checkout">Checkout</a>

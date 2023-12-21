@@ -88,7 +88,6 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href=""><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 

@@ -82,7 +82,6 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href=""><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 
@@ -90,6 +89,9 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
         <div class="content" style="margin-top: 40px;">
 
             <!-- popup 1 -->
+            <a href="dashboard.php" class="text-black"><br>
+                <h2><i class="bi bi-arrow-left"></i></h2>
+            </a>
             <center>
                 <h3>Detail Product</h3>
             </center>
