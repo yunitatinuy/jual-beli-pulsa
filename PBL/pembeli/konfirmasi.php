@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('location:../login.php');
     exit;
 }
@@ -118,13 +118,12 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     </section>
 
 
-    
+
     <?php
     if (isset($_POST['konfirmasi'])) {
         $id_user = $_SESSION['user'];
         mysqli_query($koneksi, "INSERT INTO nohp SET no_telp = '$_POST[no_telp]', id_provider='$id_provider' ");
         echo "<script>location='checkout.php?id=$id_provider';</script>";
-    
     }
     ?>
 

@@ -131,6 +131,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                 </div>
                 <?php foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) : ?>
                 <?php
+                $id_provider = $_GET['id'];
                 $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
                 $pecah = $ambil->fetch_assoc();
 

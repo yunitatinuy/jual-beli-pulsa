@@ -168,51 +168,6 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
       </div>
       <!-- popup 1 end -->
 
-      <!-- popup -->
-      <div class="popup" id="popup">
-        <div class="popup_content">
-          <a href="#popup1" class="text-black">
-            <h3><i class="bi bi-arrow-left"></i>
-          </a> Pembayaran</h3>
-          <div class="popup_img">
-            <img src="" alt="">
-            <a href="#" class="popup_close">&times;</a>
-          </div>
-          <div class="popup_header">
-            Nomor Handphone
-            <div class="konfirmasi">
-              <input type="number" inputmode="numeric" name="nomorhp" class="nomorhp">
-            </div>
-            Pulsa
-            <div class="konfirmasi"></div>
-            Operator
-            <div class="konfirmasi"></div>
-            <div class="logo_bayar">Pilih Operator Pembayaran
-              <a href=""><img src="gopay.png" width="60" class="rounded-circle" alt="..."></a>
-              <a href=""><img src="shoppe.png" width="60" class="rounded-circle" alt="..."></a>
-              <a href=""><img src="dana.png" width="60" class="rounded-circle" alt="..."></a>
-            </div>
-          </div>
-          <div class="popup_text">
-            <div class="popup_left">
-              <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
-            </div>
-            <div class="popup_center">
-              <a>Rincian Pembayaran:<br>
-                Subtotal Produk<br>
-                Biaya Layanan<br>
-                Metode Pembayaran<br>
-                Total Pembayaran</a>
-            </div>
-            <div class="popup_right">
-              <a><br>1<br>100<br>dana<br>Rp10.100</a>
-            </div>
-          </div>
-          <center><a href="#" class="btn popup_btn">Konfirmasi</a> </center>
-        </div>
-      </div>
-      <!-- popup end -->
-
 
       <!-- logo -->
       <center class="mt-5" style="font-size: large; font-family: Arial sans-serif;">QUICK.TOP<br><img src="logo/quicktop.png" width="60" class="rounded-circle mt-2" alt="...">
