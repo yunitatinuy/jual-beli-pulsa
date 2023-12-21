@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['user'])){
+    header('location:../login.php');
+    exit;
+}
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
 //jika isi keranjang kosong

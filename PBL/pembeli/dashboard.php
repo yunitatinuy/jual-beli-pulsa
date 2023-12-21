@@ -1,5 +1,13 @@
 <?php
 session_start();
+if(!isset($_SESSION['user'])){
+header('location:../login.php');
+exit;
+
+}
+
+
+
 //koneksi ke database
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
@@ -258,6 +266,9 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
       }
     }
   </script>
+
+<!-- <pre> <?php echo print_r($_SESSION["user"]); ?> </pre> -->
+
 </body>
 
 </html>

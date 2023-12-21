@@ -2,9 +2,11 @@
 session_start();
 
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
-$id_provider = $_GET['id'];
-$id_nohp = $_GET['id'];
 
+if(!isset($_SESSION['user'])){
+    header('location:../login.php');
+    exit;
+}
 //jika isi keranjang kosong
 if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     echo "<script>alert('Keranjang kosong, silahkan berbelanja dahulu')</script>";
@@ -158,12 +160,14 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
         <!-- popup end -->
 
         <?php
-        $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
+        $ambil = $koneksi->query("SELECT * FROM proveder, nohp");
         $pecah = $ambil->fetch_assoc();
+        $nomor = $koneksi->query("SELECT * FROM nohp ORDER BY id_nohp DESC LIMIT 1");
+        $detail = $nomor->fetch_assoc();
 
         if (isset($_POST['konfirmasi'])) {
-            $id = $_POST["id"];
-            $id_nohp = $_POST["id_nohp"];
+            $id_user = $_SESSION["user"]["id_user"];
+            $id_nohp = $detail["id_nohp"];
             $id_metode_bayar = $_POST["id_metode_bayar"];
             $tanggal_pembelian = date("Y-m-d");
             $total_pembelian = $pecah["harga"] * $jumlah;
@@ -171,7 +175,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             
 
             //1. menyiimpan data ke tabel pembelian
-            $koneksi->query("INSERT INTO transaksi_penjualan (id, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('', '', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
+            $koneksi->query("INSERT INTO transaksi_penjualan (id_user, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('$id_user', '$id_nohp', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
 
             //mendapatkan id_pembelian barusan terjadi
             $id_pembelian_barusan = $koneksi->insert_id;
@@ -186,7 +190,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             echo "<script>alert('Pembelian Sukses')</script>";
             echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
         }
-        
+                
         ?>
         <?php endforeach  ?>
     </section>

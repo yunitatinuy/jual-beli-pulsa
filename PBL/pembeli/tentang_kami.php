@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(!isset($_SESSION['user'])){
+header('location:../login.php');
+exit;
+
+}
+
+
+
+//koneksi ke database
+$koneksi = new mysqli("localhost", "root", "", "db_admin");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

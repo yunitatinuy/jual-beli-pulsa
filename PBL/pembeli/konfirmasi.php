@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['user'])){
+    header('location:../login.php');
+    exit;
+}
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
 $id_provider = $_GET['id'];
 $id_nohp = $_GET['id'];
@@ -117,12 +121,13 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     
     <?php
     if (isset($_POST['konfirmasi'])) {
-        mysqli_query($koneksi, "INSERT INTO nohp SET no_telp = '$_POST[no_telp]', id_provider='$id_provider'");
+        $id_user = $_SESSION['user'];
+        mysqli_query($koneksi, "INSERT INTO nohp SET no_telp = '$_POST[no_telp]', id_provider='$id_provider' ");
         echo "<script>location='checkout.php?id=$id_provider';</script>";
     
     }
     ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
