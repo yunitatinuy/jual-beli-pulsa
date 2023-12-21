@@ -6,7 +6,6 @@ exit;
 }
 
 $pengguna = $_SESSION['user']["nama"];
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +24,7 @@ $pengguna = $_SESSION['user']["nama"];
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand nav-link text-white" href="#">SELAMAT DATANG <?php echo $pengguna ?> </a>
+    <a class="navbar-brand nav-link text-white" href="#">SELAMAT DATANG <?php echo $pengguna ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -70,109 +69,6 @@ $pengguna = $_SESSION['user']["nama"];
     </div>
 
     <div class="col-md-10 p-5 pt-2">
-      <h1><i class="fas fa-tachometer-alt mr-2"></i> Dashboard</h1><br>
-      <br>
-      <h3><i class="fas fa-regular fa-layer-group mr-2"></i> Daftar Kategori</h3>
-      <hr>
-      <table class="table table-striped table-bordered">
-        <thread>
-          <tr>
-            <th scope="col">NO</th>
-            <th scope="col">ID KATEGORI</th>
-            <th scope="col">NAMA KATEGORI</th>
-          </tr>
-        </thread>
-        <?php
-        include 'koneksi.php';
-
-        $query = mysqli_query($koneksi, "SELECT * FROM kategori");
-        $no = 1;
-        while ($data = mysqli_fetch_assoc($query)) {
-        ?>
-          <tr>
-            <td><?php echo $no++; ?></td>
-            <td><?php echo $data['id_kategori']; ?></td>
-            <td><?php echo $data['nama_kategori']; ?></td>
-          </tr>
-        <?php
-        }
-        ?>
-      </table>
-      <br>
-
-      <h3><i class="fas fa-solid fa-sim-card mr-2"></i> Daftar Provider</h3>
-      <hr>
-      <table class="table table-striped table-bordered">
-        <thread>
-          <tr>
-            <th scope="col">NO</th>
-            <th scope="col">KATEGORI</th>
-            <th scope="col">NAMA PROVIDER</th>
-            <th scope="col">DETAIL</th>
-            <th scope="col">NOMINAL</th>
-            <th scope="col">HARGA</th>
-          </tr>
-        </thread>
-        <?php
-        include 'koneksi.php';
-
-        $no = 1;
-        $query = mysqli_query($koneksi, "SELECT * FROM proveder
-                INNER JOIN kategori ON proveder.id_kategori = kategori.id_kategori");
-                while ($data = mysqli_fetch_array($query)) {
-        ?>
-          <tr>
-            <td><?php echo $no++; ?></td>
-            <td><?php echo $data['nama_kategori']; ?></td>
-            <td><?php echo $data['nama_provider']; ?></td>
-            <td><?php echo $data['detail']; ?></td>
-            <td><?php echo $data['nominal']; ?></td>
-            <td><?php echo $data['harga']; ?></td>
-          </tr>
-        <?php
-        }
-        ?>
-      </table>
-      <br>
-
-      <h3><i class="fas fa-solid fa-users mr-2"></i> Daftar Pengguna</h3>
-      <hr>
-      <table class="table table-striped table-bordered">
-        <thread>
-          <tr>
-            <th scope="col">NO</th>
-            <th scope="col">ID PENGGUNA</th>
-            <th scope="col">NAMA</th>
-            <th scope="col">EMAIL</th>
-            <th scope="col">STATUS</th>
-          </tr>
-        </thread>
-        <?php
-        include 'koneksi.php';
-
-        $query = mysqli_query($koneksi, "SELECT * FROM user");
-        $no = 1;
-        while ($data = mysqli_fetch_assoc($query)) {
-        ?>
-          <tr>
-            <td><?php echo $no++; ?></td>
-            <td><?php echo $data['id_user']; ?></td>
-            <td><?php echo $data['nama']; ?></td>
-            <td><?php echo $data['email']; ?></td>
-            <td><?php
-                if ($data['role'] == 1) {
-                  echo 'admin';
-                } else {
-                  echo 'user';
-                }
-                ?></td>
-          </tr>
-        <?php
-        }
-        ?>
-      </table>
-      <br>
-
       <h3><i class="fas fa-solid fa-money-bill mr-2"></i> Daftar Transaksi</h3>
       <hr>
       <table class="table table-striped table-bordered">
@@ -212,6 +108,7 @@ $pengguna = $_SESSION['user']["nama"];
       </table>
       <br>
 
+      
 
 
 

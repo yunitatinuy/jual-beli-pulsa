@@ -5,6 +5,7 @@ header('location:../login.php');
 exit;
 }
 
+$pengguna = $_SESSION['user']["nama"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +22,7 @@ exit;
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <a class="navbar-brand nav-link text-white" href="#" >SELAMAT DATANG</a>
+      <a class="navbar-brand nav-link text-white" href="#" >SELAMAT DATANG <?php echo $pengguna ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,11 +55,15 @@ exit;
       <li class="nav-item">
         <a class="nav-link text-white" href="user.php"><i class="fas fa-solid fa-users mr-2"></i>Daftar Pengguna</a><hr class="bg-secondary">
       </li>
+      <li class="nav-item">
+          <a class="nav-link text-white" href="transaksi.php"><i class="fas fa-solid fa-money-bill mr-2"></i>Daftar Transaksi</a>
+          <hr class="bg-secondary">
+        </li>
     </ul>
   </div>
 
   <div class="col-md-10 p-5 pt-2">
-    <h3><i class="fas fa-regular fa-layer-group mr-2"></i> Daftar Pengguna</h3><hr>
+    <h3><i class="fas fa-solid fa-users mr-2"></i> Daftar Pengguna</h3><hr>
         <a href="tambah_user.php" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahuser"> 
         <i class="fas fa-plus-circle mr-2"></i>TAMBAH DATA PENGGUNA</a>
         <table class="table table-striped table-bordered">
