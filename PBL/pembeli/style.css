@@ -375,13 +375,14 @@ body {
   outline: none;
 }
 
-/* input[type="number"] {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"]{
   -moz-appearance: textfield;
 }
-input ::-webkit-outer-spin-button,
-input ::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-} */
 
 .logo_bayar a {
   margin-left: 20px;
@@ -735,6 +736,14 @@ input ::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
+.dashboard-content1{
+  background-color: #D1FFE0;
+  height: 100vh;
+  width: 100%;
+  padding-left: 70px;
+  margin-top: 65px;
+}
+
 /* pengaturan end */
 
 /* transaksi */
@@ -774,3 +783,24 @@ input ::-webkit-inner-spin-button {
   color: black;
   font-weight: 500;
 }
+
+/* riwayat */
+.dashboard-content1 .riwayat{
+  padding-left: 20px;
+  width: 100%;
+}
+.dashboard-content1 .riwayat0{
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 20px;
+}
+.dashboard-content1 .riwayat0 a{
+  text-decoration: none;
+  color: #000;
+}
+.dashboard-content1 .riwayat1{
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+/* riwayat end */

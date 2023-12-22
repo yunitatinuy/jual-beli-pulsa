@@ -6,7 +6,7 @@ exit;
 
 }
 
-
+$pengguna = $_SESSION['user']["nama"];
 
 //koneksi ke database
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
@@ -36,7 +36,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
   <!-- navbarside -->
   <section class="sidebar">
     <div class="nav-header">
-      <p class="logo">Nama Profil</p>
+      <p class="logo ps-4"><?php echo $pengguna ?></p>
       <i class="bx bx-menu-alt-right btn-menu"></i>
     </div>
     <ul class="nav-links">
@@ -55,7 +55,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
         <span class="tooltip">Tentang Kami</span>
       </li>
       <li>
-        <a href="#">
+        <a href="riwayat.php">
           <i class="bi bi-journal-text"></i>
           <span class="title">Riwayat</span>
         </a>

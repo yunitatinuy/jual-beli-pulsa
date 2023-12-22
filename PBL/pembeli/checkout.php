@@ -13,6 +13,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     echo "<script>location='dashboard.php';</script>";
 }
 
+$pengguna = $_SESSION['user']["nama"];
 ?>
 
 
@@ -38,7 +39,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     <!-- navbarside -->
     <section class="sidebar">
         <div class="nav-header">
-            <p class="logo">Nama Profil</p>
+            <p class="logo ps-4"><?php echo $pengguna ?></p>
             <i class="bx bx-menu-alt-right btn-menu"></i>
         </div>
         <ul class="nav-links">
@@ -57,7 +58,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
                 <span class="tooltip">Tentang Kami</span>
             </li>
             <li>
-                <a href="#">
+                <a href="riwayat.php">
                     <i class="bi bi-journal-text"></i>
                     <span class="title">Riwayat</span>
                 </a>
@@ -72,7 +73,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
             </li>
             <br>
             <li>
-                <a href="#">
+                <a href="../logout.php">
                     <i class="bi bi-box-arrow-right"></i>
                     <span class="title">Keluar</span>
                 </a>
@@ -87,6 +88,7 @@ if (empty($_SESSION["keranjang"]) or !isset($_SESSION["keranjang"])) {
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
+            <a href="keranjang.php"><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 
