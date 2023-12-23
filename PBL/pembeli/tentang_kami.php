@@ -88,7 +88,9 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
 
         <section class="jumbotron text-center" style="background-color: #F2FFE9;">
-            <img src="logoo.png" alt="" width="200" class="rounded-circle img-thumbnail">
+        <br>
+        <br>
+            <img src="../logoo.png" alt="" width="200" class="rounded-circle img-thumbnail">
             <h1 class="display-4" style="font-weight : bold;">QUICK.TOP</h1>
             <p class="lead" style="font-family : comic sans ms;">Website Jual Beli Pulsa</p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

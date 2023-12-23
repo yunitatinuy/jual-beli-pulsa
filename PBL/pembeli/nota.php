@@ -86,7 +86,7 @@ $id_pembelian_barusan = $_GET['id'];
 
 
             <section class="konten">
-                <div class="container">
+                <div class="container" style="border-collapse: collapse; border-radius: 30px;"><br>
 
 
                     <center>
@@ -105,38 +105,38 @@ $id_pembelian_barusan = $_GET['id'];
                     <table>
                         <tr>
                             <td>Nama</td>
-                            <td>:</td>
-                            <td><?php echo $detail['nama']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['nama']; ?></td>
                         </tr>
                         <tr>
                             <td>Username</td>
-                            <td>:</td>
-                            <td><?php echo $detail['username']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['username']; ?></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>:</td>
-                            <td><?php echo $detail['email']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['email']; ?></td>
                         </tr>
                         <tr>
                             <td>Nomor Handphone</td>
-                            <td>:</td>
-                            <td><?php echo $detail['no_telp']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['no_telp']; ?></td>
                         </tr>
                         <tr>
                             <td>Metode Bayar</td>
-                            <td>:</td>
-                            <td><?php echo $detail['jenis'] ?> - <?php echo $detail['kode']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['jenis'] ?> - <?php echo $detail['kode']; ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Pembelian</td>
-                            <td>:</td>
-                            <td><?php echo $detail['tanggal_pembelian']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;"><?php echo $detail['tanggal_pembelian']; ?></td>
                         </tr>
                         <tr>
                             <td>Total Pembelian</td>
-                            <td>:</td>
-                            <td><?php echo $detail['total_pembelian']; ?></td>
+                            <td style="padding-left: 10px;">:</td>
+                            <td style="padding-left: 10px;">Rp<?php echo number_format($detail['total_pembelian']); ?></td>
                         </tr>
                     </table>
                     <br>
@@ -144,7 +144,6 @@ $id_pembelian_barusan = $_GET['id'];
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>Nama Provider</th>
                                 <th>Nominal</th>
                                 <th>Detail</th>
@@ -153,18 +152,16 @@ $id_pembelian_barusan = $_GET['id'];
                         </thead>
                         <tbody>
                             <?php
-                            $nomor = 1;
                             $ambil = $koneksi->query("SELECT * FROM transaksi 
                             INNER JOIN proveder ON transaksi.id_provider = proveder.id_provider 
                             ORDER BY id_transaksi DESC LIMIT 1");
                             $pecah = $ambil->fetch_assoc();
                             ?>
                             <tr>
-                                <td><?php echo $nomor++; ?></td>
                                 <td><?php echo $pecah['nama_provider']; ?></td>
-                                <td><?php echo $pecah['nominal']; ?></td>
+                                <td>Rp<?php echo number_format($pecah['nominal']); ?></td>
                                 <td><?php echo $pecah['detail']; ?></td>
-                                <td><?php echo $pecah['harga']; ?></td>
+                                <td>Rp<?php echo number_format($pecah['harga']); ?></td>
                             </tr>
                         </tbody>
                     </table>

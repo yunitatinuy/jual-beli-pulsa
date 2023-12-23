@@ -114,11 +114,11 @@ $pengguna = $_SESSION['user']["nama"];
                 ?>
                 <div class="popup_header">
                     Nomor Handphone
-                    <div class="konfirmasi">
+                    <div class="konfirmasi" style="padding-left: 10px; padding-top: 5px;">
                         <?php echo $detail["no_telp"] ?>
                     </div>
                     <div class="logo_bayar">Pilih Operator Pembayaran
-                        <select class="konfirmasi" name="id_metode_bayar">
+                        <select class="konfirmasi" name="id_metode_bayar" style="padding-left: 5px;">
                             <option value="">Pilih Operator Pembayaran</option>
                             <?php
                             $ambil = $koneksi->query("SELECT * FROM metode_bayar");

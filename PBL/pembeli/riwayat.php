@@ -85,17 +85,17 @@ $pengguna = $_SESSION['user']["nama"];
 
     <!-- dashboard -->
 
-    <div class="dashboard-content1">
+    <div class="dashboard-content1" style="background-color: #d1ffe0; height: 100%; width: 100%; padding-left: 70px; margin-top: 65px;">
       <div class="riwayat">
-        <div class="riwayat0"><a href="">Riwayat Transaksi <?php echo $_SESSION['user']['nama']; ?></a></div>
-        <table class="riwayat1">
-          <thead>
+        <div class="riwayat0" style="text-align: center;"><a href="">Riwayat Transaksi <?php echo $_SESSION['user']['nama']; ?></a></div>
+        <table class="riwayat1" style="border: solid;">
+          <thead style="border: solid 2px;">
             <tr>
-              <th>No</th>
-              <th>User</th>
-              <th>Nomor Handphone</th>
-              <th>Tanggal Pembelian</th>
-              <th>Total</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">No</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">User</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">Nomor Handphone</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">Tanggal Pembelian</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">Total</th>
             </tr>
           </thead>
           <?php
@@ -109,15 +109,15 @@ $pengguna = $_SESSION['user']["nama"];
           ?>
             <tbody>
               <tr>
-                <td><?php echo $no++; ?></td>
-                <td><?php echo $_SESSION['user']['nama']; ?></td>
-                <td>
+                <td style="border-right: solid 2px; "><?php echo $no++; ?></td>
+                <td style="border-right: solid 2px;"><?php echo $_SESSION['user']['nama']; ?></td>
+                <td style="border-right: solid 2px;">
                   <?php echo $data['no_telp'];
 
                   ?>
                 </td>
-                <td><?php echo $data['tanggal_pembelian']; ?></td>
-                <td>Rp <?php echo number_format($data['total_pembelian']); ?></td>
+                <td style="border-right: solid 2px;"><?php echo $data['tanggal_pembelian']; ?></td>
+                <td style="border-right: solid 2px;">Rp <?php echo number_format($data['total_pembelian']); ?></td>
               </tr>
             </tbody>
           <?php

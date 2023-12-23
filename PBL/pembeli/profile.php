@@ -25,28 +25,28 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="dashboard.html">
+        <a href="dashboard.php">
           <i class="bi bi-house"></i>
           <span class="title">Halaman Utama</span>
         </a>
         <span class="tooltip">Halaman Utama</span>
       </li>
       <li>
-        <a href="tentang_kami.html">
+        <a href="tentang_kami.php">
           <i class="bi bi-question-circle"></i>
           <span class="title">Tentang kami</span>
         </a>
         <span class="tooltip">Tentang Kami</span>
       </li>
       <li>
-        <a href="#">
+        <a href="riwayat.php">
           <i class="bi bi-journal-text"></i>
           <span class="title">Riwayat</span>
         </a>
         <span class="tooltip">Riwayat</span>
       </li>
       <li>
-        <a href="pengaturan.html">
+        <a href="pengaturan.php">
           <i class="bi bi-gear"></i>
           <span class="title">Pengaturan</span>
         </a>
@@ -93,7 +93,7 @@
         <div class="">
           <input type="password" class="dropdown2" name="password2" placeholder="  Confirm Password" required>
         </div>
-        <a href="pengaturan.html" class="kembali-pengaturan"> Kembali ke pengaturan</a>
+        <button class="btn btn-success"><a href="pengaturan.php" class="kembali-pengaturan"><strong>Kembali ke Pengaturan</strong></a></button>
       </div>
     </div>
   </section>

@@ -93,8 +93,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
       <div class="garis btn-danger">
         <div class="text_garis">
           <h1>Ayo beli pulsa di <span>QUICK.TOP!!</span></h1>
-          <p>Mau belanja pulsa yang Mahal? Atau mau habisin uang? disinilah tempatnya <br>dijamin Aman, Mahal, Dan Prosesnya Lama<br><br>
-            #yangmampumampuaja #mahal #proseslama #quicktop</p>
+          <p>Mau beli pulsa yang murah? Dan tentunya harganya terjangkau? Disinilah solusinya <br>Dijamin prosesnya cepat, aman, terjangkau, dan terpercaya.</p>
         </div>
         <img src="logo/hp.png">
       </div>
