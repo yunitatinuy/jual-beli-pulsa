@@ -3,7 +3,7 @@ session_start();
 
 $koneksi = new mysqli("localhost", "root", "", "db_admin");
 
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('location:../login.php');
     exit;
 }
@@ -88,7 +88,6 @@ $pengguna = $_SESSION['user']["nama"];
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href="keranjang.php"><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 
@@ -134,70 +133,69 @@ $pengguna = $_SESSION['user']["nama"];
                     </div>
                 </div>
                 <?php foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) : ?>
-                <?php
-                $id_provider = $_GET['id'];
-                $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
-                $pecah = $ambil->fetch_assoc();
+                    <?php
+                    $id_provider = $_GET['id'];
+                    $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
+                    $pecah = $ambil->fetch_assoc();
 
-                ?>
-                <div class="popup_text">
-                    <div class="popup_left">
-                        <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
+                    ?>
+                    <div class="popup_text">
+                        <div class="popup_left">
+                            <img src="logo/quicktop.png" width="100" class="rounded-circle" alt="...">
+                        </div>
+                        <div class="popup_center">
+                            <a><strong>Rincian Pembayaran : </strong><br></a>
+                            <a>Subtotal Produk<br></a>
+                            <a>Biaya Layanan<br></a>
+                            <a>Total Pembayaran</a>
+                        </div>
+                        <div class="popup_right">
+                            <a><br></a>
+                            <a>Rp<?php echo number_format($pecah["nominal"]) ?><br></a>
+                            <a>Rp2,000<br></a>
+                            <a>Rp<?php echo number_format($pecah["harga"]) ?></a>
+                        </div>
                     </div>
-                    <div class="popup_center">
-                        <a><strong>Rincian Pembayaran : </strong><br></a>
-                        <a>Subtotal Produk<br></a>
-                        <a>Biaya Layanan<br></a>
-                        <a>Total Pembayaran</a>
-                    </div>
-                    <div class="popup_right">
-                        <a><br></a>
-                        <a>Rp<?php echo number_format($pecah["nominal"]) ?><br></a>
-                        <a>Rp2,000<br></a>
-                        <a>Rp<?php echo number_format($pecah["harga"]) ?></a>
-                    </div>
-                </div>
-                <br>
-                <center><button class="btn btn-success" name="konfirmasi">Konfirmasi</button>
+                    <br>
+                    <center><button class="btn btn-success" name="konfirmasi">Konfirmasi</button>
         </div>
         </div>
         </form>
         <!-- popup end -->
 
         <?php
-        $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
-        $pecah = $ambil->fetch_assoc();
-        $nomor = $koneksi->query("SELECT * FROM nohp ORDER BY id_nohp DESC LIMIT 1");
-        $detail = $nomor->fetch_assoc();
+                    $ambil = $koneksi->query("SELECT * FROM proveder WHERE id_provider='$id_provider'");
+                    $pecah = $ambil->fetch_assoc();
+                    $nomor = $koneksi->query("SELECT * FROM nohp ORDER BY id_nohp DESC LIMIT 1");
+                    $detail = $nomor->fetch_assoc();
 
-        if (isset($_POST['konfirmasi'])) {
-            $id_user = $_SESSION["user"]["id_user"];
-            $id_nohp = $detail["id_nohp"];
-            $id_metode_bayar = $_POST["id_metode_bayar"];
-            $tanggal_pembelian = date("Y-m-d");
-            $total_pembelian = $pecah["harga"];
+                    if (isset($_POST['konfirmasi'])) {
+                        $id_user = $_SESSION["user"]["id_user"];
+                        $id_nohp = $detail["id_nohp"];
+                        $id_metode_bayar = $_POST["id_metode_bayar"];
+                        $tanggal_pembelian = date("Y-m-d");
+                        $total_pembelian = $pecah["harga"];
 
-            
 
-            //1. menyiimpan data ke tabel pembelian
-            $koneksi->query("INSERT INTO transaksi_penjualan (id_user, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('$id_user', '$id_nohp', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
 
-            //mendapatkan id_pembelian barusan terjadi
-            $id_pembelian_barusan = $koneksi->insert_id;
-            foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) {
-                $koneksi->query("INSERT INTO transaksi (id_transaksi_penjualan, id_provider, jumlah) VALUES('$id_pembelian_barusan','$id_provider','$jumlah')");
-            }
+                        //1. menyiimpan data ke tabel pembelian
+                        $koneksi->query("INSERT INTO transaksi_penjualan (id_user, id_nohp, id_metode_bayar, tanggal_pembelian, total_pembelian) VALUES ('$id_user', '$id_nohp', '$id_metode_bayar', '$tanggal_pembelian', '$total_pembelian')");
 
-            //mengosongkan keranjang belanja
-            unset($_SESSION["keranjang"]);
+                        //mendapatkan id_pembelian barusan terjadi
+                        $id_pembelian_barusan = $koneksi->insert_id;
+                        foreach ($_SESSION["keranjang"] as $id_provider => $jumlah) {
+                            $koneksi->query("INSERT INTO transaksi (id_transaksi_penjualan, id_provider, jumlah) VALUES('$id_pembelian_barusan','$id_provider','$jumlah')");
+                        }
 
-            //tampilan dialihkan ke halaman nota, nota dari pembelian yang barusan
-            echo "<script>alert('Pembelian Sukses')</script>";
-            echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
-        }
-                
+                        //mengosongkan keranjang belanja
+                        unset($_SESSION["keranjang"]);
+
+                        //tampilan dialihkan ke halaman nota, nota dari pembelian yang barusan
+                        echo "<script>alert('Pembelian Sukses')</script>";
+                        echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
+                    }
         ?>
-        <?php endforeach  ?>
+    <?php endforeach  ?>
     </section>
 
 

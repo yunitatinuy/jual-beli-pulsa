@@ -66,7 +66,7 @@ $pengguna = $_SESSION['user']["nama"];
                 <span class="tooltip">Riwayat</span>
             </li>
             <li>
-                <a href="pengaturan.html">
+                <a href="pengaturan.php">
                     <i class="bi bi-gear"></i>
                     <span class="title">Pengaturan</span>
                 </a>
@@ -89,7 +89,6 @@ $pengguna = $_SESSION['user']["nama"];
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href="keranjang.php"><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 

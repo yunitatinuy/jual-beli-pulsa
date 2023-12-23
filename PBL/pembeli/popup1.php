@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('location:../login.php');
     exit;
 }
@@ -83,7 +83,6 @@ $pengguna = $_SESSION['user']["nama"];
     <section class="home">
         <div class="nav-top">
             <div class="nav-name">QUICK.TOP</div>
-            <a href="keranjang.php"><i class="bi bi-cart2"></i></a>
         </div>
         <!-- navtop end -->
 

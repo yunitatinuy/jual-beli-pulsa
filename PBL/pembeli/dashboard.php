@@ -1,9 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){
-header('location:../login.php');
-exit;
-
+if (!isset($_SESSION['user'])) {
+  header('location:../login.php');
+  exit;
 }
 
 $pengguna = $_SESSION['user']["nama"];
@@ -95,7 +94,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
         <div class="text_garis">
           <h1>Ayo beli pulsa di <span>QUICK.TOP!!</span></h1>
           <p>Mau belanja pulsa yang Mahal? Atau mau habisin uang? disinilah tempatnya <br>dijamin Aman, Mahal, Dan Prosesnya Lama<br><br>
-          #yangmampumampuaja #mahal #proseslama #quicktop</p>
+            #yangmampumampuaja #mahal #proseslama #quicktop</p>
         </div>
         <img src="logo/hp.png">
       </div>
@@ -222,7 +221,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
     }
   </script>
 
-<!-- <pre> <?php echo print_r($_SESSION["user"]); ?> </pre> -->
+  <!-- <pre> <?php echo print_r($_SESSION["user"]); ?> </pre> -->
 
 </body>
 
