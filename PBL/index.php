@@ -219,11 +219,11 @@ h3{
             <div class="logo"><a href="">QUICK.TOP</a></div>
             <div class="menu">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#desc">Description</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="registrasi.php" class="tbl-green">Registration</a></li>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#desc">Deskripsi</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#contact">Kontak Kami</a></li>
+                    <li><a href="registrasi.php" class="tbl-green">Registrasi</a></li>
                 </ul>
             </div>
         </div>
@@ -231,7 +231,7 @@ h3{
     <div class="wrapper">
         <section id="home">
             <!--home-->
-            <img src="c1.jpg" width="400px" height="400px">
+            <img src="https://img.freepik.com/free-vector/hand-drawn-credit-assessment-concept_23-2149171651.jpg?w=826&t=st=1703390546~exp=1703391146~hmac=dd347d3e6f4232a6d067d19dd4e77328b4755210e63077f6805d1b262f464144" width="400px" height="400px">
             <div class="kolom">
                 <br>
                 <br>
@@ -246,7 +246,7 @@ h3{
         <section id="desc">
             <div class="kolom">
                 <p class="deskripsi"></p>
-                <h2>Description</h2>
+                <h2>Deskripsi</h2>
                 <p>Pulsa sudah menjadi bagian dari kebutuhan yang wajib dipenuhi karena tanpa adanya pulsa akan sulit
                     bagi seseorang dalam menjalankan fungsi ponselnya dengan maksimal. Untuk itu, aplikasi ini dirancang
                     agar mempermudah pembeli untuk dapat membeli pulsa secara online tanpa harus mendatangi konter
@@ -263,7 +263,7 @@ h3{
                 width="400px" height="400px">
             <div class="kolom">
                 <p class="deskripsi"></p>
-                <h2>About Us</h2>
+                <h2>Tentang Kami</h2>
                 <p>Kami merancang website ini sebagai bagian dari tugas Project Base Learning (PBL)</p>
                 <p><a href="about.php" class="tbl-hijau">Selengkapnya</a></p>
             </div>
@@ -277,7 +277,7 @@ h3{
                     <p><img src="logo.jpeg" width="200" class="rounded-circle" alt="..." /></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3>Kontak</h3>
                     <p>Jl. Jenderal Ahmad Yani</p>
                     <p>Kode Pos : 123456</p>
                 </div>

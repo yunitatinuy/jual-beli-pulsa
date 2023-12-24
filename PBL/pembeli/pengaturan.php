@@ -102,7 +102,7 @@ $koneksi = new mysqli("localhost", "root", "", "db_admin");
           <a href="#popup2" class="text-decoration-none px-3 py-2 d-block text-black"><i class="bi bi-lock"></i> Ganti Password</a></li>
         </div>
         <div class="dropdown1 p-2">
-          <a href=tentang_kami.php" class="text-decoration-none px-3 py-2 d-block text-black"><i class="bi bi-info-circle"></i> Pusat Bantuan</a></li>
+          <a href="tentang_kami.php" class="text-decoration-none px-3 py-2 d-block text-black"><i class="bi bi-info-circle"></i> Pusat Bantuan</a></li>
         </div>
         <div class="dropdown1 p-2">
           <a href="../logout.php" class="text-decoration-none px-3 py-2 d-block text-black"><i class="bi bi-box-arrow-right"></i> Keluar</a></li>

@@ -54,7 +54,7 @@
       </li>
       <br>
       <li>
-        <a href="#">
+        <a href="../logout.php">
           <i class="bi bi-box-arrow-right"></i>
           <span class="title">Keluar</span>
         </a>

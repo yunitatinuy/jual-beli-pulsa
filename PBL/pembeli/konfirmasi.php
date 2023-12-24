@@ -45,7 +45,7 @@ $pengguna = $_SESSION['user']["nama"];
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <i class="bi bi-house"></i>
                     <span class="title">Halaman Utama</span>
                 </a>
