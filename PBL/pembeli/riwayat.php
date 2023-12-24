@@ -92,10 +92,11 @@ $pengguna = $_SESSION['user']["nama"];
           <thead style="border: solid 2px;">
             <tr>
               <th style="border: solid; background-color: #008000; color: white; border-color: black;">No</th>
-              <th style="border: solid; background-color: #008000; color: white; border-color: black;">User</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">Nama</th>
               <th style="border: solid; background-color: #008000; color: white; border-color: black;">Nomor Handphone</th>
               <th style="border: solid; background-color: #008000; color: white; border-color: black;">Tanggal Pembelian</th>
               <th style="border: solid; background-color: #008000; color: white; border-color: black;">Total</th>
+              <th style="border: solid; background-color: #008000; color: white; border-color: black;">Aksi</th>
             </tr>
           </thead>
           <?php
@@ -118,6 +119,7 @@ $pengguna = $_SESSION['user']["nama"];
                 </td>
                 <td style="border-right: solid 2px;"><?php echo $data['tanggal_pembelian']; ?></td>
                 <td style="border-right: solid 2px;">Rp <?php echo number_format($data['total_pembelian']); ?></td>
+                <td><a href="cetak.php"><button class="btn btn-success">Cetak</button></a></td>
               </tr>
             </tbody>
           <?php

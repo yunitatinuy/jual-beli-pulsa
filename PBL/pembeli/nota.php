@@ -45,7 +45,7 @@ $id_pembelian_barusan = $_GET['id'];
                 <span class="tooltip">Tentang Kami</span>
             </li>
             <li>
-                <a href="#">
+                <a href="riwayat.php">
                     <i class="bi bi-journal-text"></i>
                     <span class="title">Riwayat</span>
                 </a>

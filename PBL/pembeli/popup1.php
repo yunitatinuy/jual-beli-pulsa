@@ -94,7 +94,7 @@ $pengguna = $_SESSION['user']["nama"];
                 <h2><i class="bi bi-arrow-left"></i></h2>
             </a>
             <center>
-                <h3>Detail Product</h3>
+                <h3>Detail Produk</h3>
             </center>
             <div class="popup1_img">
                 <img src="" alt="">

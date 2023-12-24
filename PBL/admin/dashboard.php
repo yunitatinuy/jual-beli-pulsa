@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){
-header('location:../login.php');
-exit;
+if (!isset($_SESSION['user'])) {
+  header('location:../login.php');
+  exit;
 }
 
 $pengguna = $_SESSION['user']["nama"];
@@ -119,7 +119,7 @@ $pengguna = $_SESSION['user']["nama"];
         $no = 1;
         $query = mysqli_query($koneksi, "SELECT * FROM proveder
                 INNER JOIN kategori ON proveder.id_kategori = kategori.id_kategori");
-                while ($data = mysqli_fetch_array($query)) {
+        while ($data = mysqli_fetch_array($query)) {
         ?>
           <tr>
             <td><?php echo $no++; ?></td>
@@ -178,13 +178,14 @@ $pengguna = $_SESSION['user']["nama"];
       <table class="table table-striped table-bordered">
         <thread>
           <tr>
-          <th scope="col">NO</th>
+            <th scope="col">NO</th>
             <th scope="col">ID TRANSAKSI</th>
             <th scope="col">NAMA PENGGUNA</th>
             <th scope="col">NO HP</th>
             <th scope="col">METODE BAYAR</th>
             <th scope="col">TANGGAL PEMBELIAN</th>
             <th scope="col">TOTAL</th>
+            <th scope="col">STATUS</th>
           </tr>
         </thread>
         <?php
@@ -199,12 +200,13 @@ $pengguna = $_SESSION['user']["nama"];
         ?>
           <tr>
             <td><?php echo $no++; ?></td>
-            <td><?php echo $data['id_transaksi']; ?></td>
+            <td><?php echo $data['id_transaksi_penjualan']; ?></td>
             <td><?php echo $data['nama']; ?></td>
             <td><?php echo $data['no_telp']; ?></td>
             <td><?php echo $data['jenis']; ?></td>
             <td><?php echo $data['tanggal_pembelian']; ?></td>
             <td>Rp<?php echo number_format($data['total_pembelian']); ?></td>
+            <td>Sukses</td>
           </tr>
         <?php
         }
