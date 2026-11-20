@@ -225,7 +225,7 @@ $active_menu = 'user';
                             </div>
                             <div class="form-group-qt">
                               <label>Email</label>
-                              <input type="email" name="email" required value="<?php echo e($data1['email']); ?>">
+                              <input type="email" name="email" value="<?php echo e($data1['email']); ?>" readonly title="Email tidak dapat diubah oleh admin">
                             </div>
                             <div class="form-group-qt">
                               <label>Role / Hak Akses</label>

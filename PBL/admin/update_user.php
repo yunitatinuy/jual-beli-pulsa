@@ -9,12 +9,12 @@ function kembali_user($pesan)
 
 $id_user = (int) ($_POST['id_user'] ?? 0);
 $nama = trim($_POST['nama'] ?? '');
-$email = trim($_POST['email'] ?? '');
+// email sengaja tidak dibaca dari form: admin tidak boleh mengubah email pengguna
 $role = ((int) ($_POST['role'] ?? 0)) === 1 ? 1 : 0;
-$password_baru = $_POST['password_baru'] ?? '';
+$password_baru = $_POST['password_baru'] ?? ($_POST['password'] ?? ''); // form edit memakai name="password"
 
-if ($nama === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    kembali_user('Nama wajib diisi dan email harus valid');
+if ($nama === '') {
+    kembali_user('Nama wajib diisi');
 }
 
 // ambil role lama
@@ -40,18 +40,17 @@ if ((int) $lama['role'] === 1 && $role !== 1) {
 
 if ($password_baru !== '') {
     $pass_acak = password_hash($password_baru, PASSWORD_DEFAULT);
-    $stmt = mysqli_prepare($koneksi, "UPDATE user SET nama = ?, email = ?, role = ?, password = ? WHERE id_user = ?");
-    mysqli_stmt_bind_param($stmt, 'ssisi', $nama, $email, $role, $pass_acak, $id_user);
+    $stmt = mysqli_prepare($koneksi, "UPDATE user SET nama = ?, role = ?, password = ? WHERE id_user = ?");
+    mysqli_stmt_bind_param($stmt, 'sisi', $nama, $role, $pass_acak, $id_user);
 } else {
-    $stmt = mysqli_prepare($koneksi, "UPDATE user SET nama = ?, email = ?, role = ? WHERE id_user = ?");
-    mysqli_stmt_bind_param($stmt, 'ssii', $nama, $email, $role, $id_user);
+    $stmt = mysqli_prepare($koneksi, "UPDATE user SET nama = ?, role = ? WHERE id_user = ?");
+    mysqli_stmt_bind_param($stmt, 'sii', $nama, $role, $id_user);
 }
 mysqli_stmt_execute($stmt);
 
 // perbarui data sesi jika admin mengubah datanya sendiri
 if ($id_user === (int) $_SESSION['user']['id_user']) {
     $_SESSION['user']['nama'] = $nama;
-    $_SESSION['user']['email'] = $email;
     if (isset($pass_acak)) {
         $_SESSION['user']['password'] = $pass_acak;
     }

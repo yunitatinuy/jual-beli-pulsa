@@ -14,6 +14,18 @@ function toggleSidebar() {
   }
 }
 
+// Pindahkan semua modal (Tambah/Edit/Hapus) langsung ke <body>.
+// Modal berada di dalam panel .glass-panel (memakai transform & backdrop-filter) di dalam
+// section.home (z-index: 1). Di posisi itu modal terkurung di lapisan bawah dan tertutup
+// lapisan gelap (backdrop) Bootstrap, sehingga form Edit/Hapus tidak bisa diklik.
+(function () {
+  document.querySelectorAll('.modal').forEach(function (modal) {
+    if (modal.parentElement !== document.body) {
+      document.body.appendChild(modal);
+    }
+  });
+})();
+
 // Pencarian tabel di halaman admin yang aktif
 (function () {
   var form = document.querySelector('.nav-top form, .content form.search-form');
